@@ -4,7 +4,7 @@
 EAPI=8
 
 CODENAME="Omega"
-BENTO4_VERSION="1.6.0-641-Omega"
+BENTO4_VERSION="1.6.0-641-Omega" # TODO: unbundle
 
 inherit kodi-addon
 
@@ -26,7 +26,6 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
-	dev-libs/expat
 	dev-libs/pugixml
 	=media-tv/kodi-21*
 "
@@ -35,6 +34,7 @@ RDEPEND="
 "
 DEPEND="
 	${COMMON_DEPEND}
+	dev-libs/rapidjson
 	test? ( dev-cpp/gtest )
 "
 

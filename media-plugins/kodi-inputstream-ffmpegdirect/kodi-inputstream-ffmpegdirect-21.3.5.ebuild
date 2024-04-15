@@ -20,10 +20,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 COMMON_DEPEND="
-	app-arch/bzip2
 	=media-tv/kodi-21*
 	media-video/ffmpeg:=[encode,libxml2,zlib]
-	virtual/libiconv
 "
 RDEPEND="
 	${COMMON_DEPEND}
@@ -31,6 +29,8 @@ RDEPEND="
 
 DEPEND="
 	${COMMON_DEPEND}
+	app-arch/bzip2
+	sys-libs/zlib
 "
 
 BDEPEND="

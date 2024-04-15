@@ -18,14 +18,18 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-DEPEND="
+RDEPEND="
 	=media-tv/kodi-21*
 	media-video/rtmpdump[ssl]
-	"
-
-RDEPEND="${DEPEND}"
-
-BDEPEND="virtual/pkgconfig"
+"
+DEPEND="
+	${RDEPEND}
+	dev-libs/openssl
+	sys-libs/zlib
+"
+BDEPEND="
+	virtual/pkgconfig
+"
 
 src_prepare() {
 	if [ -d depends ]; then rm -rf depends || die; fi

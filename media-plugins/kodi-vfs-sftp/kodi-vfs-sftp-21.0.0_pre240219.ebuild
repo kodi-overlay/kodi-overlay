@@ -22,9 +22,13 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	=media-tv/kodi-21*
-	net-libs/libssh[sftp]
+	net-libs/libssh:=[sftp]
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	dev-libs/openssl
+	sys-libs/zlib
+"
 
 src_prepare() {
 	[ -d depends ] && rm -rf depends || die

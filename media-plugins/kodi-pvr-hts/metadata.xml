@@ -5,10 +5,10 @@
 		<email>candrews@gentoo.org</email>
 		<name>Craig Andrews</name>
 	</maintainer>
-    <maintainer type="person" proxied="yes">
-        <email>david.guglielmi@gmail.com</email>
-        <name>David GUGLIELMI</name>
-    </maintainer>
+	<maintainer type="person" proxied="yes">
+		<email>david.guglielmi@gmail.com</email>
+	<name>David GUGLIELMI</name>
+	</maintainer>
 	<upstream>
 		<remote-id type="github">kodi-pvr/pvr.hts</remote-id>
 	</upstream>

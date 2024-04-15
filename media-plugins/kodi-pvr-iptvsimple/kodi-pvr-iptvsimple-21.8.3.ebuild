@@ -20,6 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	app-arch/xz-utils
 	dev-libs/pugixml
 	=media-tv/kodi-21*
 	sys-libs/zlib

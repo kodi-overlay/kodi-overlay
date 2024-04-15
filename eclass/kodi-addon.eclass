@@ -3,6 +3,8 @@
 
 # @ECLASS: kodi-addon.eclass
 # @MAINTAINER:
+# David GUGLIELMI <david.guglielmi@gmail.com>
+# @AUTHOR:
 # candrews@gentoo.org
 # @SUPPORTED_EAPIS: 7 8
 # @PROVIDES: cmake

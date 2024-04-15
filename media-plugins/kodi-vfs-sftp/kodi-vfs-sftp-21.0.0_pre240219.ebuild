@@ -3,27 +3,28 @@
 
 EAPI=8
 
-inherit kodi-addon
-
+CODENAME="Omega"
 COMMIT_ID="9fe870e71a10a37f2d793b2261bac48b195f2705"
+
+inherit kodi-addon
 
 DESCRIPTION="SFTP VFS addon for Kodi"
 HOMEPAGE="https://github.com/xbmc/vfs.sftp"
-
-CODENAME="Omega"
-KEYWORDS="~amd64 ~x86"
-SRC_URI="https://github.com/xbmc/vfs.sftp/archive/${COMMIT_ID}.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	https://github.com/xbmc/vfs.sftp/archive/${COMMIT_ID}.tar.gz
+		-> ${P}.tar.gz
+"
 S="${WORKDIR}/vfs.sftp-${COMMIT_ID}"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE=""
+KEYWORDS="~amd64 ~x86"
 
-DEPEND="
-	net-libs/libssh[sftp]
+RDEPEND="
 	=media-tv/kodi-21*
-	"
-RDEPEND="${DEPEND}"
+	net-libs/libssh[sftp]
+"
+DEPEND="${RDEPEND}"
 
 src_prepare() {
 	[ -d depends ] && rm -rf depends || die

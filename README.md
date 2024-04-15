@@ -1,3 +1,5 @@
+![pkgcheck](https://github.com/kodi-overlay/kodi-overlay/actions/workflows/pkgcheck.yaml/badge.svg)
+
 # kodi-overlay
 A Gentoo overlay for Kodi.
 

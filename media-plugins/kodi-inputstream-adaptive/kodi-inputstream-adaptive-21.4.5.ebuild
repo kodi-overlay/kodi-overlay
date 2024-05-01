@@ -38,13 +38,16 @@ DEPEND="
 	test? ( dev-cpp/gtest )
 "
 
+src_unpack() {
+	unpack ${P}.tar.gz
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TESTING=$(usex test)
 		-DENABLE_INTERNAL_BENTO4=ON
 		-DBENTO4_URL="${DISTDIR}/bento4-${BENTO4_VERSION}.tar.gz"
-		-DCMAKE_INSTALL_LIBDIR="${EPREFIX}/usr/$(get_libdir)/kodi"
 		-Wno-dev
 	)
-	cmake_src_configure
+	kodi-addon_src_configure
 }

@@ -33,4 +33,3 @@ src_prepare() {
 	[ -d depends ] && rm -rf depends || die
 	cmake_src_prepare
 }
-

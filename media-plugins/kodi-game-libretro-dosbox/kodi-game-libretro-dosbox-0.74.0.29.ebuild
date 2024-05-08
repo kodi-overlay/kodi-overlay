@@ -34,9 +34,9 @@ DEPEND="
 src_prepare() {
 	[ -d depends ] && rm -rf depends || die
 
-	sed -i '/find_library/d' CMakeLists.txt
 	sed -i \
-		's#${DOSBOX_LIB}#"'"${WORKDIR}"/dosbox-libretro-${DOSBOX_COMMIT_ID}'/dosbox_libretro.so"#1' \
+		-e '/find_library/d' \
+		-e 's#${DOSBOX_LIB}#"'"${WORKDIR}"/dosbox-libretro-${DOSBOX_COMMIT_ID}'/dosbox_libretro.so"#1' \
 		CMakeLists.txt || die
 
 	cmake_src_prepare

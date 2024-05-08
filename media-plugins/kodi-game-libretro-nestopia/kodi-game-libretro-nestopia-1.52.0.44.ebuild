@@ -34,9 +34,9 @@ DEPEND="
 src_prepare() {
 	[ -d depends ] && rm -rf depends || die
 
-	sed -i '/find_library/d' CMakeLists.txt
 	sed -i \
-		's#${NESTOPIA_LIB}#"'"${WORKDIR}"/nestopia-${NESTOPIA_COMMIT_ID}'/libretro/nestopia_libretro.so"#1' \
+		-e '/find_library/d' \
+		-e 's#${NESTOPIA_LIB}#"'"${WORKDIR}"/nestopia-${NESTOPIA_COMMIT_ID}'/libretro/nestopia_libretro.so"#1' \
 		CMakeLists.txt || die
 
 	cmake_src_prepare

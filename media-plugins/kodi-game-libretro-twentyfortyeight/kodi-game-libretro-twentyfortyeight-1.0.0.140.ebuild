@@ -34,9 +34,9 @@ DEPEND="
 src_prepare() {
 	[ -d depends ] && rm -rf depends || die
 
-	sed -i '/find_library/d' CMakeLists.txt
 	sed -i \
-		's#${2048_LIB}#"'"${WORKDIR}"/libretro-2048-${LIBRETRO_2048_COMMIT_ID}'/2048_libretro.so"#1' \
+		-e '/find_library/d' \
+		-e 's#${2048_LIB}#"'"${WORKDIR}"/libretro-2048-${LIBRETRO_2048_COMMIT_ID}'/2048_libretro.so"#1' \
 		CMakeLists.txt || die
 
 	cmake_src_prepare

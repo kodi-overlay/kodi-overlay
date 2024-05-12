@@ -29,8 +29,3 @@ DEPEND="
 	dev-libs/openssl
 	sys-libs/zlib
 "
-
-src_prepare() {
-	[ -d depends ] && rm -rf depends || die
-	cmake_src_prepare
-}

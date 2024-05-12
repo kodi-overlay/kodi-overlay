@@ -28,8 +28,3 @@ DEPEND="
 	>=media-libs/libogg-1.3.5
 	>=media-libs/libvorbis-1.3.7
 "
-
-src_prepare() {
-	[ -d depends ] && rm -rf depends || die
-	cmake_src_prepare
-}

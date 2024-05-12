@@ -33,8 +33,3 @@ DEPEND="
 	dev-libs/lzo:2
 	dev-libs/openssl
 "
-
-src_prepare() {
-	[ -d depends ] && rm -rf depends || die
-	cmake_src_prepare
-}

@@ -39,8 +39,9 @@ src_unpack() {
 
 src_prepare() {
 	for dep in windows windowsstore common/tinyxml; do
-		[ -d depends/"${dep}" ] && rm -rf depends/"${dep}" || die
+		[ -d depends/"${dep}" ] && (rm -rf depends/"${dep}" || die)
 	done
+
 	cmake_src_prepare
 }
 

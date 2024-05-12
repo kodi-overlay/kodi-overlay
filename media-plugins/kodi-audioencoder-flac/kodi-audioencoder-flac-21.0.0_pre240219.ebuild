@@ -28,8 +28,3 @@ DEPEND="
 	>=media-libs/flac-1.4.3
 	>=media-libs/libogg-1.3.5
 "
-
-src_prepare() {
-	[ -d depends ] && rm -rf depends || die
-	cmake_src_prepare
-}

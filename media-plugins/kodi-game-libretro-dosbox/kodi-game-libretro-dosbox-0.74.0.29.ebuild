@@ -32,14 +32,12 @@ DEPEND="
 "
 
 src_prepare() {
-	[ -d depends ] && rm -rf depends || die
-
 	sed -i \
 		-e '/find_library/d' \
 		-e 's#${DOSBOX_LIB}#"'"${WORKDIR}"/dosbox-libretro-${DOSBOX_COMMIT_ID}'/dosbox_libretro.so"#1' \
 		CMakeLists.txt || die
 
-	cmake_src_prepare
+	kodi-addon_src_prepare
 }
 
 src_compile() {

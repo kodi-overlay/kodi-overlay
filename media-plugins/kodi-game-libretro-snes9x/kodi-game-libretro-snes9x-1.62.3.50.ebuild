@@ -32,14 +32,12 @@ DEPEND="
 "
 
 src_prepare() {
-	[ -d depends ] && rm -rf depends || die
-
 	sed -i \
 		-e '/find_library/d' \
 		-e 's#${SNES9X_LIB}#"'"${WORKDIR}"/snes9x-${SNES9X_COMMIT_ID}'/libretro/snes9x_libretro.so"#1' \
 		CMakeLists.txt || die
 
-	cmake_src_prepare
+	kodi-addon_src_prepare
 }
 
 src_compile() {

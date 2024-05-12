@@ -28,8 +28,3 @@ DEPEND="
 	media-sound/wavpack
 	virtual/libiconv
 "
-
-src_prepare() {
-	[ -d depends ] && rm -rf depends || die
-	cmake_src_prepare
-}

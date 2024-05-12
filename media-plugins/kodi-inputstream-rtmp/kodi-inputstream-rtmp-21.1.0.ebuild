@@ -30,9 +30,3 @@ DEPEND="
 BDEPEND="
 	virtual/pkgconfig
 "
-
-src_prepare() {
-	if [ -d depends ]; then rm -rf depends || die; fi
-
-	cmake_src_prepare
-}

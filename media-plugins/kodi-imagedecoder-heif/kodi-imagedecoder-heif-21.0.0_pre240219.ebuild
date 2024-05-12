@@ -29,8 +29,3 @@ DEPEND="
 	media-libs/libde265
 	media-libs/libheif
 "
-
-src_prepare() {
-	[ -d depends ] && rm -rf depends || die
-	cmake_src_prepare
-}

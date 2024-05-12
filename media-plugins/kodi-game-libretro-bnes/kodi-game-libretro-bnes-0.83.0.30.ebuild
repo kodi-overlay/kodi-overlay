@@ -32,14 +32,12 @@ DEPEND="
 "
 
 src_prepare() {
-	[ -d depends ] && rm -rf depends || die
-
 	sed -i \
 		-e '/find_library/d' \
 		-e 's#${BNES_LIB}#"'"${WORKDIR}"/bnes-libretro-${BNES_COMMIT_ID}'/bnes_libretro.so"#1' \
 		CMakeLists.txt || die
 
-	cmake_src_prepare
+	kodi-addon_src_prepare
 }
 
 src_compile() {

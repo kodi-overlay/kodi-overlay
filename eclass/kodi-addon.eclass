@@ -10,7 +10,7 @@
 # @PROVIDES: cmake
 # @BLURB: Helper for correct building and (importantly) installing Kodi addon packages.
 # @DESCRIPTION:
-# Provides a src_configure function for correct CMake configuration
+# Provides a src_prepare and src_configure function for Kodi addon packages
 
 case ${EAPI} in
 	7|8) ;;
@@ -31,4 +31,15 @@ kodi-addon_src_configure() {
 	cmake_src_configure
 }
 
-EXPORT_FUNCTIONS src_configure
+# @FUNCTION: kodi-addon_src_prepare
+# @DESCRIPTION:
+# Prepare handling for Kodi addons
+kodi-addon_src_prepare() {
+
+	# Ensure embedded dependencies are removed
+	[ -d depends ] && (rm -rf depends || die)
+
+	cmake_src_prepare
+}
+
+EXPORT_FUNCTIONS src_prepare src_configure

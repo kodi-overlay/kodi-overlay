@@ -42,6 +42,10 @@ src_unpack() {
 	unpack ${P}.tar.gz
 }
 
+src_prepare() {
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TESTING=$(usex test)

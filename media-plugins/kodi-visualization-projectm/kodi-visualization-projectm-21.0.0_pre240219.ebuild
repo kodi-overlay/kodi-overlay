@@ -28,3 +28,15 @@ DEPEND="
 	media-libs/libprojectm:0/2
 	virtual/opengl
 "
+
+QA_PREBUILT="
+	usr/share/kodi/addons/visualization.projectm/resources/projectM/presets/*
+"
+
+src_configure() {
+	local mycmakeargs=(
+		-Wno-dev
+	)
+
+	kodi-addon_src_configure
+}

@@ -9,7 +9,7 @@ BENTO4_VERSION="1.6.0-641-Omega" # TODO: unbundle
 inherit kodi-addon
 
 DESCRIPTION="Kodi's Adaptive inputstream addon"
-HOMEPAGE="https://github.com/xbmc/inputstream.adaptive.git"
+HOMEPAGE="https://github.com/xbmc/inputstream.adaptive"
 SRC_URI="
 	https://github.com/xbmc/inputstream.adaptive/archive/${PV}-${CODENAME}.tar.gz
 		-> ${P}.tar.gz

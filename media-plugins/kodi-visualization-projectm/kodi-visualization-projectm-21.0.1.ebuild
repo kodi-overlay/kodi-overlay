@@ -4,17 +4,16 @@
 EAPI=8
 
 CODENAME="Omega"
-COMMIT_ID="378ed846cb71432bf78fcbed162590912ffda4a9"
 
 inherit kodi-addon
 
 DESCRIPTION="ProjectM visualizer for Kodi"
 HOMEPAGE="https://github.com/xbmc/visualization.projectm"
 SRC_URI="
-	https://github.com/xbmc/visualization.projectm/archive/${COMMIT_ID}.tar.gz
+	https://github.com/xbmc/visualization.projectm/archive/${PV}-${CODENAME}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/visualization.projectm-${COMMIT_ID}"
+S="${WORKDIR}/visualization.projectm-${PV}-${CODENAME}"
 
 LICENSE="GPL-2"
 SLOT="0"

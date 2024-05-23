@@ -27,10 +27,10 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	=media-tv/kodi-21*
+	dev-libs/tinyxml
 "
 DEPEND="
 	${RDEPEND}
-	dev-libs/tinyxml
 "
 
 src_unpack() {

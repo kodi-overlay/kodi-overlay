@@ -21,7 +21,7 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	=media-tv/kodi-21*
-	dev-libs/jsoncpp
+	dev-libs/jsoncpp:=
 "
 DEPEND="
 	${RDEPEND}

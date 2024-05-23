@@ -21,11 +21,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	media-libs/libraw:=[jpeg,lcms]
 	=media-tv/kodi-21*
 "
 DEPEND="
 	${RDEPEND}
 	media-libs/libjpeg-turbo
-	media-libs/libraw[jpeg,lcms]
 	media-libs/lcms
 "

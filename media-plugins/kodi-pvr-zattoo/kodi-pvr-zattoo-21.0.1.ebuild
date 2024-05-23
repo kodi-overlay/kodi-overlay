@@ -23,8 +23,8 @@ RDEPEND="
 	=media-tv/kodi-21*
 	dev-libs/rapidjson
 	dev-db/sqlite:3
-	dev-libs/tinyxml2
 "
 DEPEND="
 	${RDEPEND}
+	dev-libs/tinyxml2
 "

@@ -21,7 +21,7 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	=media-tv/kodi-21*
-	dev-libs/tinyxml2
+	dev-libs/tinyxml2:=
 "
 DEPEND="
 	${RDEPEND}

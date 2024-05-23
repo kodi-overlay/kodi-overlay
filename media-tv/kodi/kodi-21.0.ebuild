@@ -256,6 +256,10 @@ BDEPEND="
 	)
 "
 
+PATCHES=(
+	"${FILESDIR}"/kodi-21-fix-gcc14.patch
+)
+
 # bug #544020
 CONFIG_CHECK="~IP_MULTICAST"
 ERROR_IP_MULTICAST="

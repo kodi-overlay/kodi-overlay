@@ -28,3 +28,7 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
+
+PATCHES=(
+	"${FILESDIR}"/kodi-pvr-stalker-21.0.1-fix-gcc14.patch
+)

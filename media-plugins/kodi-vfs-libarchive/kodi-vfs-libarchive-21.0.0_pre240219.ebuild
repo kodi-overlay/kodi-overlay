@@ -21,11 +21,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	app-arch/libarchive:=[bzip2,lz4,lzma,lzo,zlib(+)]
 	=media-tv/kodi-21*
 "
 DEPEND="
 	${RDEPEND}
-	app-arch/libarchive[bzip2,lz4,lzma,lzo,zlib(+)]
 	app-arch/xz-utils
 	app-arch/bzip2
 	sys-libs/zlib

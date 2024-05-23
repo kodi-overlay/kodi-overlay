@@ -21,10 +21,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	>=media-libs/libogg-1.3.5
+	>=media-libs/libvorbis-1.3.7
 	=media-tv/kodi-21*
 "
 DEPEND="
 	${RDEPEND}
-	>=media-libs/libogg-1.3.5
-	>=media-libs/libvorbis-1.3.7
 "

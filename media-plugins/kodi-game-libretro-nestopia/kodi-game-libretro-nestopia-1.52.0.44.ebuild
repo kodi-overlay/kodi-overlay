@@ -4,7 +4,6 @@
 EAPI=8
 
 CODENAME="Nexus"
-NESTOPIA_COMMIT_ID="3dcbec4682e079312d6943e1357487645ec608c7"
 
 inherit kodi-addon
 
@@ -13,8 +12,6 @@ HOMEPAGE="https://github.com/kodi-game/game.libretro.nestopia"
 SRC_URI="
 	https://github.com/kodi-game/game.libretro.nestopia/archive/${PV}-${CODENAME}.tar.gz
 		-> ${P}.tar.gz
-	https://github.com/libretro/nestopia/archive/${NESTOPIA_COMMIT_ID}.tar.gz
-		-> nestopia-${NESTOPIA_COMMIT_ID}.tar.gz
 "
 
 S="${WORKDIR}/game.libretro.nestopia-${PV}-${CODENAME}"
@@ -24,27 +21,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	=media-tv/kodi-21*
+	games-emulation/libretro-nestopia
 	media-plugins/kodi-game-libretro
+	=media-tv/kodi-21*
 "
 DEPEND="
 	${RDEPEND}
 "
-
-src_prepare() {
-	sed -i \
-		-e '/find_library/d' \
-		-e 's#${NESTOPIA_LIB}#"'"${WORKDIR}"/nestopia-${NESTOPIA_COMMIT_ID}'/libretro/nestopia_libretro.so"#1' \
-		CMakeLists.txt || die
-
-	kodi-addon_src_prepare
-}
-
-src_compile() {
-	emake \
-		-C "${WORKDIR}"/nestopia-${NESTOPIA_COMMIT_ID}/libretro \
-		platform=unix \
-		GIT_VERSION=
-
-	cmake_src_compile
-}

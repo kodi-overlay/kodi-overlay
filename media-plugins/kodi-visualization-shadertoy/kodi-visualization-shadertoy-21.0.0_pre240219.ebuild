@@ -21,11 +21,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	dev-libs/jsoncpp:=
+	media-libs/libglvnd
 	=media-tv/kodi-21*
 "
 DEPEND="
 	${RDEPEND}
 	media-libs/glm
-	dev-libs/jsoncpp
-	virtual/opengl
 "

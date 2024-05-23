@@ -22,9 +22,9 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	=media-tv/kodi-21*
+	>=media-libs/flac-1.4.3:=
 "
 DEPEND="
 	${RDEPEND}
-	>=media-libs/flac-1.4.3
 	>=media-libs/libogg-1.3.5
 "

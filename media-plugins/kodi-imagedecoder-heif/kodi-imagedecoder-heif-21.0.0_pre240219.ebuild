@@ -21,11 +21,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	dev-libs/tinyxml2:=
+	media-libs/libheif:=
 	=media-tv/kodi-21*
 "
 DEPEND="
 	${RDEPEND}
-	dev-libs/tinyxml2
 	media-libs/libde265
-	media-libs/libheif
 "

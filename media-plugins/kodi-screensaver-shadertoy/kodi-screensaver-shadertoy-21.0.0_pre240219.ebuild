@@ -21,10 +21,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	media-libs/libglvnd
 	=media-tv/kodi-21*
 "
 DEPEND="
 	${RDEPEND}
 	media-libs/glm
-	virtual/opengl
 "

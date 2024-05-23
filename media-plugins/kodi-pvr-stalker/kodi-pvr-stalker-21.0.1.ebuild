@@ -21,12 +21,12 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	=media-tv/kodi-21*
-	dev-libs/jsoncpp
+	dev-libs/jsoncpp:=
 	dev-libs/libxml2
-	sys-libs/zlib
 "
 DEPEND="
 	${RDEPEND}
+	sys-libs/zlib
 "
 
 PATCHES=(

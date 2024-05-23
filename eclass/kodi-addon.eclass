@@ -19,6 +19,42 @@ esac
 
 inherit cmake
 
+# @ECLASS_VARIABLE: KODI_ADDON_PN
+# @PRE_INHERIT
+# @DESCRIPTION:
+# Name for the kodi addon, transformed from PN unless specified.
+# Example: kodi-something-nothing -> something.nothing
+
+if [[ -z ${KODI_ADDON_PN} ]]; then
+	KODI_ADDON_PN="${PN##kodi-}"
+	KODI_ADDON_PN="${PN/-/.}"
+fi
+
+# @ECLASS_VARIABLE: CODENAME
+# @PRE_INHERIT
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Kodi development codename that plugin targets. Used for determining the values for S
+# and to add the correct kodi RDEPEND.
+# https://kodi.wiki/view/Codename_history
+
+S="${WORKDIR}/${KODI_ADDON_PN}-${PV}-${CODENAME}"
+
+case ${CODENAME} in
+	Omega)
+		RDEPEND+="=media-tv/kodi-21*"
+		;;
+	Nexus)
+		RDEPEND+="=media-tv/kodi-20*"
+		;;
+	Matrix)
+		RDEPEND+="=media-tv/kodi-19*"
+		;;
+	*)
+		RDEPEND+="media-tv/kodi"
+		;;
+esac
+
 # @FUNCTION: kodi-addon_src_configure
 # @DESCRIPTION:
 # Configure handling for Kodi addons

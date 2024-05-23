@@ -21,10 +21,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	>=media-sound/lame-3.100
 	=media-tv/kodi-21*
 "
 DEPEND="
 	${RDEPEND}
-	>=media-sound/lame-3.100
 	virtual/libiconv
 "

@@ -20,10 +20,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	dev-libs/tinyxml
 	=media-tv/kodi-21*
+	virtual/libudev:=
 "
 DEPEND="
 	${RDEPEND}
-	dev-libs/tinyxml
-	virtual/libudev
 "

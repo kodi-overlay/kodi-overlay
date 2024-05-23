@@ -4,7 +4,6 @@
 EAPI=8
 
 CODENAME="Nexus"
-SNES9X_COMMIT_ID="ec4ebfc8f3819a9522fcb8e53eed985090017b1b"
 
 inherit kodi-addon
 
@@ -13,8 +12,6 @@ HOMEPAGE="https://github.com/kodi-game/game.libretro.snes9x"
 SRC_URI="
 	https://github.com/kodi-game/game.libretro.snes9x/archive/${PV}-${CODENAME}.tar.gz
 		-> ${P}.tar.gz
-	https://github.com/libretro/snes9x/archive/${SNES9X_COMMIT_ID}.tar.gz
-		-> snes9x-${SNES9X_COMMIT_ID}.tar.gz
 "
 
 S="${WORKDIR}/game.libretro.snes9x-${PV}-${CODENAME}"
@@ -24,27 +21,13 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	=media-tv/kodi-21*
 	media-plugins/kodi-game-libretro
+	=media-tv/kodi-21*
+	|| (
+		games-emulation/libretro-snes9x
+		games-emulation/snes9x[libretro]
+	)
 "
 DEPEND="
 	${RDEPEND}
 "
-
-src_prepare() {
-	sed -i \
-		-e '/find_library/d' \
-		-e 's#${SNES9X_LIB}#"'"${WORKDIR}"/snes9x-${SNES9X_COMMIT_ID}'/libretro/snes9x_libretro.so"#1' \
-		CMakeLists.txt || die
-
-	kodi-addon_src_prepare
-}
-
-src_compile() {
-	emake \
-		-C "${WORKDIR}"/snes9x-${SNES9X_COMMIT_ID}/libretro \
-		platform=unix \
-		GIT_VERSION=
-
-	cmake_src_compile
-}

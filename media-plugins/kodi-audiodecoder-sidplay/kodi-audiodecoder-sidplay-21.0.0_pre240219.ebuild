@@ -21,9 +21,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	media-libs/libsidplay:2
 	=media-tv/kodi-21*
 "
 DEPEND="
 	${RDEPEND}
-	media-libs/libsidplay:2
 "

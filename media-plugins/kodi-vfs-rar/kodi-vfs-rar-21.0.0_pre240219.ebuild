@@ -21,9 +21,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	dev-libs/tinyxml
 	=media-tv/kodi-21*
 "
 DEPEND="
 	${RDEPEND}
-	dev-libs/tinyxml
 "

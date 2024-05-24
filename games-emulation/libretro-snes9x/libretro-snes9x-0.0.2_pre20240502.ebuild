@@ -17,6 +17,13 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 RESTRICT="bindist"
 
+CDEPEND="
+	sys-libs/zlib
+"
 RDEPEND="
+	${CDEPEND}
 	!>=games-emulation/snes9x-1.60[libretro]
+"
+DEPEND="
+	${CDEPEND}
 "

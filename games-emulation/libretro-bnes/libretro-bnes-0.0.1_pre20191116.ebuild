@@ -12,3 +12,5 @@ LICENSE="GPL-3+"
 SLOT="0"
 
 KEYWORDS="~amd64 ~x86"
+
+RESTRICT="test" # no tests, default phase leads to failure if unrestricted

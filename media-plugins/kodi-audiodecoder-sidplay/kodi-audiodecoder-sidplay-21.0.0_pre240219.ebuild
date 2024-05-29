@@ -10,10 +10,7 @@ inherit kodi-addon
 
 DESCRIPTION="SidPlay decoder addon for Kodi"
 HOMEPAGE="https://github.com/xbmc/audiodecoder.sidplay"
-SRC_URI="
-	https://github.com/xbmc/${KODI_ADDON_PN}/archive/${KODI_ADDON_COMMIT}.tar.gz
-		-> ${P}.tar.gz
-"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -21,7 +18,6 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	media-libs/libsidplay:2
 "
-
 DEPEND="
 	${RDEPEND}
 "

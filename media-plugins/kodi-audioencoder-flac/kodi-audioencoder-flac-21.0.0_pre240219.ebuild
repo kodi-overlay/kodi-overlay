@@ -10,10 +10,6 @@ inherit kodi-addon
 
 DESCRIPTION="Flac encoder addon for Kodi"
 HOMEPAGE="https://github.com/xbmc/audioencoder.flac"
-SRC_URI="
-	https://github.com/xbmc/${KODI_ADDON_PN}/archive/${KODI_ADDON_COMMIT}.tar.gz
-		-> ${P}.tar.gz
-"
 
 LICENSE="GPL-2"
 SLOT="0"

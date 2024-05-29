@@ -10,10 +10,6 @@ inherit kodi-addon
 
 DESCRIPTION="Asteroids screensaver for Kodi"
 HOMEPAGE="https://github.com/xbmc/screensaver.asteroids"
-SRC_URI="
-	https://github.com/xbmc/${KODI_ADDON_PN}/archive/${KODI_ADDON_COMMIT}.tar.gz
-		-> ${P}.tar.gz
-"
 
 LICENSE="GPL-2"
 SLOT="0"

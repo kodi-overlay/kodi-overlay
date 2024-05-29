@@ -10,9 +10,7 @@ inherit kodi-addon
 
 DESCRIPTION="Kodi's Adaptive inputstream addon"
 HOMEPAGE="https://github.com/xbmc/inputstream.adaptive"
-SRC_URI="
-	https://github.com/xbmc/${KODI_ADDON_PN}/archive/${PV}-${CODENAME}.tar.gz
-		-> ${P}.tar.gz
+SRC_URI+="
 	https://github.com/xbmc/Bento4/archive/${BENTO4_VERSION}.tar.gz
 		-> bento4-${BENTO4_VERSION}.tar.gz
 "

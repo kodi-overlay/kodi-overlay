@@ -9,10 +9,6 @@ inherit kodi-addon
 
 DESCRIPTION="Kodi's DVBLink client addon"
 HOMEPAGE="https://github.com/kodi-pvr/pvr.dvblink"
-SRC_URI="
-	https://github.com/kodi-pvr/${KODI_ADDON_PN}/archive/${PV}-${CODENAME}.tar.gz
-		-> ${P}.tar.gz
-"
 
 LICENSE="GPL-2"
 SLOT="0"

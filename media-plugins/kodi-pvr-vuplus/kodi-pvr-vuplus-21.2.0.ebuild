@@ -13,6 +13,7 @@ SRC_URI="
 	https://github.com/kodi-pvr/${KODI_ADDON_PN}/archive/${PV}.tar.gz
 		-> ${P}.tar.gz
 "
+
 S="${WORKDIR}/${KODI_ADDON_PN}-${PV}"
 
 LICENSE="GPL-2"

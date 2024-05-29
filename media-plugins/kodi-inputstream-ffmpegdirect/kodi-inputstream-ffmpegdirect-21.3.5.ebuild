@@ -9,10 +9,6 @@ inherit kodi-addon
 
 DESCRIPTION="Kodi's FFMpeg Direct Inputstream addon"
 HOMEPAGE="https://github.com/xbmc/inputstream.ffmpegdirect"
-SRC_URI="
-	https://github.com/xbmc/${KODI_ADDON_PN}/archive/${PV}-${CODENAME}.tar.gz
-		-> ${P}.tar.gz
-"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -24,13 +20,11 @@ COMMON_DEPEND="
 RDEPEND="
 	${COMMON_DEPEND}
 "
-
 DEPEND="
 	${COMMON_DEPEND}
 	app-arch/bzip2
 	sys-libs/zlib
 "
-
 BDEPEND="
 	virtual/pkgconfig
 "

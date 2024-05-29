@@ -9,10 +9,6 @@ inherit kodi-addon
 
 DESCRIPTION="Kodi's RTMP inputstream addon"
 HOMEPAGE="https://github.com/xbmc/inputstream.rtmp"
-SRC_URI="
-	https://github.com/xbmc/${KODI_ADDON_PN}/archive/${PV}-${CODENAME}.tar.gz
-		-> ${P}.tar.gz
-"
 
 LICENSE="GPL-2+"
 SLOT="0"

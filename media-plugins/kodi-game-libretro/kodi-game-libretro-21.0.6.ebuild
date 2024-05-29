@@ -11,9 +11,7 @@ inherit kodi-addon
 
 DESCRIPTION="Libretro compatibility layer for the Kodi Game API"
 HOMEPAGE="https://github.com/kodi-game/game.libretro"
-SRC_URI="
-	https://github.com/kodi-game/game.libretro/archive/${PV}-${CODENAME}.tar.gz
-		-> ${P}.tar.gz
+SRC_URI+="
 	https://github.com/libretro/libretro-common/archive/${LIBRETROCOMMON_COMMIT_ID}.tar.gz
 		-> libretro-common-${LIBRETROCOMMON_COMMIT_ID}.tar.gz
 	https://github.com/RetroAchievements/rcheevos/archive/v${RCHEEVOS_VERSION}.tar.gz

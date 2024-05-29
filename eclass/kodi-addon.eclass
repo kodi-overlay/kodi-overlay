@@ -30,6 +30,12 @@ if [[ -z ${KODI_ADDON_PN} ]]; then
 	KODI_ADDON_PN="${KODI_ADDON_PN//-/.}"
 fi
 
+# @ECLASS_VARIABLE: KODI_GH_ORG
+# @PRE_INHERIT
+# @DESCRIPTION:
+# Name for the kodi addon Github organization.
+# Example: https://github.com/kodi-pvr
+
 case ${PN} in
 	kodi-game-*)
 		KODI_GH_ORG="kodi-game"
@@ -41,6 +47,12 @@ case ${PN} in
 		KODI_GH_ORG="xbmc"
 	;;
 esac
+
+# @ECLASS_VARIABLE: KODI_GH_TAG
+# @PRE_INHERIT
+# @DESCRIPTION:
+# Name for the kodi addon Github source tag name.
+# Example: 21.0.1-Omega
 
 if [[ -z ${KODI_ADDON_COMMIT} ]]; then
 	KODI_GH_TAG="${PV}-${CODENAME}"

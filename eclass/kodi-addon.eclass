@@ -27,7 +27,7 @@ inherit cmake
 
 if [[ -z ${KODI_ADDON_PN} ]]; then
 	KODI_ADDON_PN="${PN##kodi-}"
-	KODI_ADDON_PN="${PN/-/.}"
+	KODI_ADDON_PN="${KODI_ADDON_PN//-/.}"
 fi
 
 # @ECLASS_VARIABLE: CODENAME
@@ -38,7 +38,11 @@ fi
 # and to add the correct kodi RDEPEND.
 # https://kodi.wiki/view/Codename_history
 
-S="${WORKDIR}/${KODI_ADDON_PN}-${PV}-${CODENAME}"
+if [[ -z ${KODI_ADDON_COMMIT} ]]; then
+	S="${WORKDIR}/${KODI_ADDON_PN}-${PV}-${CODENAME}"
+else
+	S="${WORKDIR}/${KODI_ADDON_PN}-${KODI_ADDON_COMMIT}"
+fi
 
 case ${CODENAME} in
 	Omega)

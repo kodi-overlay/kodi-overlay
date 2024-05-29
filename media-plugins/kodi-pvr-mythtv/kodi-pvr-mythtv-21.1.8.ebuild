@@ -10,17 +10,15 @@ inherit kodi-addon
 DESCRIPTION="MythTV PVR for Kodi"
 HOMEPAGE="https://github.com/janbar/pvr.mythtv"
 SRC_URI="
-	https://github.com/janbar/pvr.mythtv/archive/${PV}-${CODENAME}.tar.gz
+	https://github.com/janbar/${KODI_ADDON_PN}/archive/${PV}-${CODENAME}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/pvr.mythtv-${PV}-${CODENAME}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	=media-tv/kodi-21*
 	sys-libs/zlib
 "
 DEPEND="

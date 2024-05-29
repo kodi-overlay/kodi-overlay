@@ -4,25 +4,21 @@
 EAPI=8
 
 CODENAME="Omega"
-COMMIT_ID="b72c793e2ada7ab2358568ec5b01fd71ddf7cdb3"
+KODI_ADDON_COMMIT="b72c793e2ada7ab2358568ec5b01fd71ddf7cdb3"
 
 inherit kodi-addon
 
 DESCRIPTION="SPC decoder addon for Kodi"
 HOMEPAGE="https://github.com/xbmc/audiodecoder.stsound"
 SRC_URI="
-	https://github.com/xbmc/audiodecoder.stsound/archive/${COMMIT_ID}.tar.gz
+	https://github.com/xbmc/${KODI_ADDON_PN}/archive/${KODI_ADDON_COMMIT}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/audiodecoder.stsound-${COMMIT_ID}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="
-	=media-tv/kodi-21*
-"
 DEPEND="
 	${RDEPEND}
 "

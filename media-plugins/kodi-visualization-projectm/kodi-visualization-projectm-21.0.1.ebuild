@@ -10,10 +10,9 @@ inherit kodi-addon
 DESCRIPTION="ProjectM visualizer for Kodi"
 HOMEPAGE="https://github.com/xbmc/visualization.projectm"
 SRC_URI="
-	https://github.com/xbmc/visualization.projectm/archive/${PV}-${CODENAME}.tar.gz
+	https://github.com/xbmc/${KODI_ADDON_PN}/archive/${PV}-${CODENAME}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/visualization.projectm-${PV}-${CODENAME}"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -22,7 +21,6 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	media-libs/libprojectm:0/2
 	media-libs/libglvnd
-	=media-tv/kodi-21*
 "
 DEPEND="
 	${RDEPEND}

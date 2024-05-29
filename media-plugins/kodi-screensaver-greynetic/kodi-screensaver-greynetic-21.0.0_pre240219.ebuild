@@ -4,17 +4,16 @@
 EAPI=8
 
 CODENAME="Omega"
-COMMIT_ID="2955c4105ea1223e9901dbc804812bdb3c0412a7"
+KODI_ADDON_COMMIT="2955c4105ea1223e9901dbc804812bdb3c0412a7"
 
 inherit kodi-addon
 
 DESCRIPTION="Greynetic screensaver for Kodi"
 HOMEPAGE="https://github.com/xbmc/screensaver.greynetic"
 SRC_URI="
-	https://github.com/xbmc/screensaver.greynetic/archive/${COMMIT_ID}.tar.gz
+	https://github.com/xbmc/${KODI_ADDON_PN}/archive/${KODI_ADDON_COMMIT}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/screensaver.greynetic-${COMMIT_ID}"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -22,7 +21,6 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	media-libs/libglvnd
-	=media-tv/kodi-21*
 "
 DEPEND="
 	${RDEPEND}

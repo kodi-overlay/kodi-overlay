@@ -10,17 +10,15 @@ inherit kodi-addon
 DESCRIPTION="Kodi's Stalker client addon"
 HOMEPAGE="https://github.com/kodi-pvr/pvr.stalker"
 SRC_URI="
-	https://github.com/kodi-pvr/pvr.stalker/archive/${PV}-${CODENAME}.tar.gz
+	https://github.com/kodi-pvr/${KODI_ADDON_PN}/archive/${PV}-${CODENAME}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/pvr.stalker-${PV}-${CODENAME}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	=media-tv/kodi-21*
 	dev-libs/jsoncpp:=
 	dev-libs/libxml2
 "

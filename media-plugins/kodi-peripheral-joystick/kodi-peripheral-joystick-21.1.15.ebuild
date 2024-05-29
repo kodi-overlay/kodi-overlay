@@ -10,10 +10,9 @@ inherit kodi-addon
 DESCRIPTION="Libretro compatibility layer for the Kodi Game API"
 HOMEPAGE="https://github.com/xbmc/peripheral.joystick"
 SRC_URI="
-	https://github.com/xbmc/peripheral.joystick/archive/${PV}-${CODENAME}.tar.gz
+	https://github.com/xbmc/${KODI_ADDON_PN}/archive/${PV}-${CODENAME}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/peripheral.joystick-${PV}-${CODENAME}"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -21,7 +20,6 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-libs/tinyxml
-	=media-tv/kodi-21*
 	virtual/libudev:=
 "
 DEPEND="

@@ -10,18 +10,14 @@ inherit kodi-addon
 DESCRIPTION="Tvheadend Live TV and Radio PVR client addon for Kodi"
 HOMEPAGE="https://github.com/kodi-pvr/pvr.hts"
 SRC_URI="
-	https://github.com/kodi-pvr/pvr.hts/archive/${PV}-${CODENAME}.tar.gz
+	https://github.com/kodi-pvr/${KODI_ADDON_PN}/archive/${PV}-${CODENAME}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/pvr.hts-${PV}-${CODENAME}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="
-	=media-tv/kodi-21*
-"
 DEPEND="
 	${RDEPEND}
 "

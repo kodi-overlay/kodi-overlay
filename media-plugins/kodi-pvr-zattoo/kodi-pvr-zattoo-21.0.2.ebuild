@@ -10,17 +10,15 @@ inherit kodi-addon
 DESCRIPTION="Zattoo PVR addon for Kodi"
 HOMEPAGE="https://github.com/rbuehlma/pvr.zattoo"
 SRC_URI="
-	https://github.com/rbuehlma/pvr.zattoo/archive/${PV}-${CODENAME}.tar.gz
+	https://github.com/rbuehlma/${KODI_ADDON_PN}/archive/${PV}-${CODENAME}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/pvr.zattoo-${PV}-${CODENAME}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	=media-tv/kodi-21*
 	dev-libs/rapidjson
 	dev-db/sqlite:3
 "

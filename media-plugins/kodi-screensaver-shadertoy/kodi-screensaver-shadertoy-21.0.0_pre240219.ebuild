@@ -4,17 +4,16 @@
 EAPI=8
 
 CODENAME="Omega"
-COMMIT_ID="a0b53a28277f1b2cfb4db74a688a6582e3e0ece6"
+KODI_ADDON_COMMIT="a0b53a28277f1b2cfb4db74a688a6582e3e0ece6"
 
 inherit kodi-addon
 
 DESCRIPTION="Shadertoy screensaver for Kodi"
 HOMEPAGE="https://github.com/xbmc/screensaver.shadertoy"
 SRC_URI="
-	https://github.com/xbmc/screensaver.shadertoy/archive/${COMMIT_ID}.tar.gz
+	https://github.com/xbmc/${KODI_ADDON_PN}/archive/${KODI_ADDON_COMMIT}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/screensaver.shadertoy-${COMMIT_ID}"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -22,7 +21,6 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	media-libs/libglvnd
-	=media-tv/kodi-21*
 "
 DEPEND="
 	${RDEPEND}

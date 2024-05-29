@@ -19,14 +19,12 @@ SRC_URI="
 	https://github.com/RetroAchievements/rcheevos/archive/v${RCHEEVOS_VERSION}.tar.gz
 		-> rcheevos-${RCHEEVOS_VERSION}.tar.gz
 "
-S="${WORKDIR}/game.libretro-${PV}-${CODENAME}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	=media-tv/kodi-21*
 	dev-libs/tinyxml
 "
 DEPEND="

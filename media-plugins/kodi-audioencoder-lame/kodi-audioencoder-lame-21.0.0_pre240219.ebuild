@@ -4,17 +4,16 @@
 EAPI=8
 
 CODENAME="Omega"
-COMMIT_ID="f272aeb7aeb94e9d8bf1454e23f0232790bf0ef6"
+KODI_ADDON_COMMIT="f272aeb7aeb94e9d8bf1454e23f0232790bf0ef6"
 
 inherit kodi-addon
 
 DESCRIPTION="Lame MP3 encoder addon for Kodi"
 HOMEPAGE="https://github.com/xbmc/audioencoder.lame"
 SRC_URI="
-	https://github.com/xbmc/audioencoder.lame/archive/${COMMIT_ID}.tar.gz
+	https://github.com/xbmc/${KODI_ADDON_PN}/archive/${KODI_ADDON_COMMIT}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/audioencoder.lame-${COMMIT_ID}"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -22,7 +21,6 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	>=media-sound/lame-3.100
-	=media-tv/kodi-21*
 "
 DEPEND="
 	${RDEPEND}

@@ -10,17 +10,16 @@ inherit kodi-addon
 DESCRIPTION="Kodi's VuPlus client addon"
 HOMEPAGE="https://github.com/kodi-pvr/pvr.vuplus"
 SRC_URI="
-	https://github.com/kodi-pvr/pvr.vuplus/archive/${PV}.tar.gz
+	https://github.com/kodi-pvr/${KODI_ADDON_PN}/archive/${PV}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/pvr.vuplus-${PV}"
+S="${WORKDIR}/${KODI_ADDON_PN}-${PV}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
-	=media-tv/kodi-21*
 	dev-cpp/nlohmann_json
 	dev-libs/tinyxml
 "

@@ -4,26 +4,24 @@
 EAPI=8
 
 CODENAME="Omega"
-COMMIT_ID="0ba1bc70faced93352cdd9ec1a5ec84e22a2e0f5"
+KODI_ADDON_COMMIT="0ba1bc70faced93352cdd9ec1a5ec84e22a2e0f5"
 
 inherit kodi-addon
 
 DESCRIPTION="SidPlay decoder addon for Kodi"
 HOMEPAGE="https://github.com/xbmc/audiodecoder.sidplay"
 SRC_URI="
-	https://github.com/xbmc/audiodecoder.sidplay/archive/${COMMIT_ID}.tar.gz
+	https://github.com/xbmc/${KODI_ADDON_PN}/archive/${KODI_ADDON_COMMIT}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/audiodecoder.sidplay-${COMMIT_ID}"
-
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	media-libs/libsidplay:2
-	=media-tv/kodi-21*
 "
+
 DEPEND="
 	${RDEPEND}
 "

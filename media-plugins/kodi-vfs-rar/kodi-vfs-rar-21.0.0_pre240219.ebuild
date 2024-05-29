@@ -4,17 +4,16 @@
 EAPI=8
 
 CODENAME="Omega"
-COMMIT_ID="2f49a0de43bc9f4e91dfec73a13dcb04df285233"
+KODI_ADDON_COMMIT="2f49a0de43bc9f4e91dfec73a13dcb04df285233"
 
 inherit kodi-addon
 
 DESCRIPTION="RAR VFS addon for Kodi"
 HOMEPAGE="https://github.com/xbmc/vfs.rar"
 SRC_URI="
-	https://github.com/xbmc/vfs.rar/archive/${COMMIT_ID}.tar.gz
+	https://github.com/xbmc/${KODI_ADDON_PN}/archive/${KODI_ADDON_COMMIT}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/vfs.rar-${COMMIT_ID}"
 
 LICENSE="GPL-2 unRAR"
 SLOT="0"
@@ -22,7 +21,6 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-libs/tinyxml
-	=media-tv/kodi-21*
 "
 DEPEND="
 	${RDEPEND}

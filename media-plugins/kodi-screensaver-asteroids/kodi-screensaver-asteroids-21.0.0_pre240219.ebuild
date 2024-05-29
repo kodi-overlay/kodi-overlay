@@ -4,17 +4,16 @@
 EAPI=8
 
 CODENAME="Omega"
-COMMIT_ID="9f761cb7d5842e61da9c608c9f58067bcb986d89"
+KODI_ADDON_COMMIT="9f761cb7d5842e61da9c608c9f58067bcb986d89"
 
 inherit kodi-addon
 
 DESCRIPTION="Asteroids screensaver for Kodi"
 HOMEPAGE="https://github.com/xbmc/screensaver.asteroids"
 SRC_URI="
-	https://github.com/xbmc/screensaver.asteroids/archive/${COMMIT_ID}.tar.gz
+	https://github.com/xbmc/${KODI_ADDON_PN}/archive/${KODI_ADDON_COMMIT}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/screensaver.asteroids-${COMMIT_ID}"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -22,7 +21,6 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	media-libs/libglvnd
-	=media-tv/kodi-21*
 "
 DEPEND="
 	${RDEPEND}

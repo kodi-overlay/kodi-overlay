@@ -4,17 +4,16 @@
 EAPI=8
 
 CODENAME="Omega"
-COMMIT_ID="8f2fc2135b34740af538ade3faf310f1a188db7f"
+KODI_ADDON_COMMIT="8f2fc2135b34740af538ade3faf310f1a188db7f"
 
 inherit kodi-addon
 
 DESCRIPTION="Spectrum visualizer for Kodi"
 HOMEPAGE="https://github.com/xbmc/visualization.spectrum"
 SRC_URI="
-	https://github.com/xbmc/visualization.spectrum/archive/${COMMIT_ID}.tar.gz
+	https://github.com/xbmc/${KODI_ADDON_PN}/archive/${KODI_ADDON_COMMIT}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/visualization.spectrum-${COMMIT_ID}"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -22,7 +21,6 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	media-libs/libglvnd
-	=media-tv/kodi-21*
 "
 DEPEND="
 	${RDEPEND}

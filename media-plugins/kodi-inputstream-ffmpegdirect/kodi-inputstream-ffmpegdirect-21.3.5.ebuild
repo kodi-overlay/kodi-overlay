@@ -10,17 +10,15 @@ inherit kodi-addon
 DESCRIPTION="Kodi's FFMpeg Direct Inputstream addon"
 HOMEPAGE="https://github.com/xbmc/inputstream.ffmpegdirect"
 SRC_URI="
-	https://github.com/xbmc/inputstream.ffmpegdirect/archive/${PV}-${CODENAME}.tar.gz
+	https://github.com/xbmc/${KODI_ADDON_PN}/archive/${PV}-${CODENAME}.tar.gz
 		-> ${P}.tar.gz
 "
-S="${WORKDIR}/inputstream.ffmpegdirect-${PV}-${CODENAME}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 COMMON_DEPEND="
-	=media-tv/kodi-21*
 	media-video/ffmpeg:=[encode,libxml2,zlib]
 "
 RDEPEND="

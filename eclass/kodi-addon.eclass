@@ -30,6 +30,31 @@ if [[ -z ${KODI_ADDON_PN} ]]; then
 	KODI_ADDON_PN="${KODI_ADDON_PN//-/.}"
 fi
 
+case ${PN} in
+	kodi-game-*)
+		KODI_GH_ORG="kodi-game"
+	;;
+	kodi-pvr-*)
+		KODI_GH_ORG="kodi-pvr"
+	;;
+	*)
+		KODI_GH_ORG="xbmc"
+	;;
+esac
+
+if [[ -z ${KODI_ADDON_COMMIT} ]]; then
+	KODI_GH_TAG="${PV}-${CODENAME}"
+else
+	KODI_GH_TAG="${KODI_ADDON_COMMIT}"
+fi
+
+SRC_URI="
+	https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}/archive/${KODI_GH_TAG}.tar.gz
+		-> ${P}.tar.gz
+"
+
+S="${WORKDIR}/${KODI_ADDON_PN}-${KODI_GH_TAG}"
+
 # @ECLASS_VARIABLE: CODENAME
 # @PRE_INHERIT
 # @DEFAULT_UNSET
@@ -37,12 +62,6 @@ fi
 # Kodi development codename that plugin targets. Used for determining the values for S
 # and to add the correct kodi RDEPEND.
 # https://kodi.wiki/view/Codename_history
-
-if [[ -z ${KODI_ADDON_COMMIT} ]]; then
-	S="${WORKDIR}/${KODI_ADDON_PN}-${PV}-${CODENAME}"
-else
-	S="${WORKDIR}/${KODI_ADDON_PN}-${KODI_ADDON_COMMIT}"
-fi
 
 case ${CODENAME} in
 	Omega)

@@ -4,17 +4,12 @@
 EAPI=8
 
 CODENAME="Omega"
+KODI_ADDON_TAG="${PV}-Nexus"
 
 inherit kodi-addon
 
 DESCRIPTION="DOSBox GameClient for Kodi"
 HOMEPAGE="https://github.com/kodi-game/game.libretro.dosbox"
-SRC_URI="
-	https://github.com/kodi-game/${KODI_ADDON_PN}/archive/${PV}-Nexus.tar.gz
-		-> ${P}.tar.gz
-"
-
-S="${WORKDIR}/${KODI_ADDON_PN}-${PV}-Nexus"
 
 LICENSE="GPL-3"
 SLOT="0"

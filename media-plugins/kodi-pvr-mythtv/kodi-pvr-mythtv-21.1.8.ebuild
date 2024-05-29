@@ -4,15 +4,12 @@
 EAPI=8
 
 CODENAME="Omega"
+KODI_GH_ORG="janbar"
 
 inherit kodi-addon
 
 DESCRIPTION="MythTV PVR for Kodi"
 HOMEPAGE="https://github.com/janbar/pvr.mythtv"
-SRC_URI="
-	https://github.com/janbar/${KODI_ADDON_PN}/archive/${PV}-${CODENAME}.tar.gz
-		-> ${P}.tar.gz
-"
 
 LICENSE="GPL-2"
 SLOT="0"

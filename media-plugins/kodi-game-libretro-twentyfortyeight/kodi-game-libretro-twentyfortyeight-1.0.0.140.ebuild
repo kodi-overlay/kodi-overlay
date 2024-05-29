@@ -5,17 +5,12 @@ EAPI=8
 
 CODENAME="Omega"
 KODI_ADDON_PN="game.libretro.2048"
+KODI_ADDON_TAG="${PV}-Nexus"
 
 inherit kodi-addon
 
 DESCRIPTION="2048 for Kodi"
 HOMEPAGE="https://github.com/kodi-game/game.libretro.2048"
-SRC_URI="
-	https://github.com/kodi-game/${KODI_ADDON_PN}/archive/${PV}-Nexus.tar.gz
-		-> ${P}.tar.gz
-"
-
-S="${WORKDIR}/${KODI_ADDON_PN}-${PV}-Nexus"
 
 LICENSE="GPL-2"
 SLOT="0"

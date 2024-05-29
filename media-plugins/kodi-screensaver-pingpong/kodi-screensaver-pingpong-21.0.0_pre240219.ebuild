@@ -4,7 +4,7 @@
 EAPI=8
 
 CODENAME="Omega"
-KODI_ADDON_COMMIT="a0b8b956002ddc64eb6d433e3230fa09619f2aef"
+KODI_ADDON_TAG="a0b8b956002ddc64eb6d433e3230fa09619f2aef"
 
 inherit kodi-addon
 

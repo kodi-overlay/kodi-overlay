@@ -34,38 +34,34 @@ fi
 # @PRE_INHERIT
 # @DESCRIPTION:
 # Name for the kodi addon Github organization.
-# Example: https://github.com/kodi-pvr
+# Example: KODI_GH_ORG="kodi-pvr" -> https://github.com/kodi-pvr
 
 case ${PN} in
 	kodi-game-*)
-		KODI_GH_ORG="kodi-game"
+		KODI_GH_ORG="${KODI_GH_ORG:=kodi-game}"
 	;;
 	kodi-pvr-*)
-		KODI_GH_ORG="kodi-pvr"
+		KODI_GH_ORG="${KODI_GH_ORG:=kodi-pvr}"
 	;;
 	*)
-		KODI_GH_ORG="xbmc"
+		KODI_GH_ORG="${KODI_GH_ORG:=xbmc}"
 	;;
 esac
 
-# @ECLASS_VARIABLE: KODI_GH_TAG
+# @ECLASS_VARIABLE: KODI_ADDON_TAG
 # @PRE_INHERIT
 # @DESCRIPTION:
 # Name for the kodi addon Github source tag name.
 # Example: 21.0.1-Omega
 
-if [[ -z ${KODI_ADDON_COMMIT} ]]; then
-	KODI_GH_TAG="${PV}-${CODENAME}"
-else
-	KODI_GH_TAG="${KODI_ADDON_COMMIT}"
-fi
+KODI_ADDON_TAG="${KODI_ADDON_TAG:=${PV}-${CODENAME}}"
 
 SRC_URI="
-	https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}/archive/${KODI_GH_TAG}.tar.gz
+	https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}/archive/${KODI_ADDON_TAG}.tar.gz
 		-> ${P}.tar.gz
 "
 
-S="${WORKDIR}/${KODI_ADDON_PN}-${KODI_GH_TAG}"
+S="${WORKDIR}/${KODI_ADDON_PN}-${KODI_ADDON_TAG}"
 
 # @ECLASS_VARIABLE: CODENAME
 # @PRE_INHERIT

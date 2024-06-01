@@ -11,7 +11,7 @@ inherit kodi-addon
 DESCRIPTION="Vorbis encoder addon for Kodi"
 HOMEPAGE="https://github.com/xbmc/audioencoder.vorbis"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 

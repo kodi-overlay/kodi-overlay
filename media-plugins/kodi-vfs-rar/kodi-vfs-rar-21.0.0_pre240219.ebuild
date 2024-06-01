@@ -11,7 +11,7 @@ inherit kodi-addon
 DESCRIPTION="RAR VFS addon for Kodi"
 HOMEPAGE="https://github.com/xbmc/vfs.rar"
 
-LICENSE="GPL-2 unRAR"
+LICENSE="GPL-2+ unRAR"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 

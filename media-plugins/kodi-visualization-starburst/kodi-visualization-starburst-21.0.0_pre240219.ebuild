@@ -11,7 +11,7 @@ inherit kodi-addon
 DESCRIPTION="StarBurst visualizer for Kodi"
 HOMEPAGE="https://github.com/xbmc/visualization.starburst"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 

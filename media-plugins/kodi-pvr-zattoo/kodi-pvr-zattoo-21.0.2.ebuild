@@ -11,7 +11,7 @@ inherit kodi-addon
 DESCRIPTION="Zattoo PVR addon for Kodi"
 HOMEPAGE="https://github.com/rbuehlma/pvr.zattoo"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 

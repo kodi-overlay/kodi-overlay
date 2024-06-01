@@ -11,7 +11,7 @@ inherit kodi-addon
 DESCRIPTION="Super Audio CD ISO-Image decoder addon for Kodi"
 HOMEPAGE="https://github.com/xbmc/audiodecoder.sacd"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 

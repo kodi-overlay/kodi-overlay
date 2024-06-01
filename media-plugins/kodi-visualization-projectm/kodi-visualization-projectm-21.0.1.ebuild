@@ -10,7 +10,7 @@ inherit kodi-addon
 DESCRIPTION="ProjectM visualizer for Kodi"
 HOMEPAGE="https://github.com/xbmc/visualization.projectm"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 

@@ -11,7 +11,7 @@ inherit kodi-addon
 DESCRIPTION="bNES GameClient for Kodi"
 HOMEPAGE="https://github.com/kodi-game/game.libretro.bnes"
 
-LICENSE="GPL-3"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 

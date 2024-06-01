@@ -11,7 +11,7 @@ inherit kodi-addon
 DESCRIPTION="Lame MP3 encoder addon for Kodi"
 HOMEPAGE="https://github.com/xbmc/audioencoder.lame"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 

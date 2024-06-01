@@ -8,7 +8,7 @@ KODI_ADDON_TAG="953947d07fdf69967e2dc64b289631c57c79e800"
 
 inherit kodi-addon
 
-DESCRIPTION="BioGenesis screensaver for Kodi"
+DESCRIPTION="Biogenesis screensaver for Kodi"
 HOMEPAGE="https://github.com/xbmc/screensaver.biogenesis"
 
 LICENSE="GPL-2+"

@@ -13,7 +13,7 @@ HOMEPAGE="https://github.com/xbmc/visualization.spectrum"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	media-libs/libglvnd

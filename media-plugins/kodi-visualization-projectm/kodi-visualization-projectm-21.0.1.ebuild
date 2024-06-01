@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/xbmc/visualization.projectm"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	media-libs/libprojectm:0/2

@@ -3,16 +3,11 @@
 
 EAPI=8
 
-case ${PV} in
-	*9999)
-		inherit git-r3
-	;;
-	*)
-		CODENAME="Omega"
+if [[ ! "${PV}" =~ 9999* ]]; then
+	CODENAME="Omega"
 		KODI_ADDON_TAG="${PV}-Nexus"
-		KEYWORDS="~amd64 ~x86"
-	;;
-esac
+	KEYWORDS="~amd64 ~x86"
+fi
 
 KODI_ADDON_PN="game.libretro.2048"
 

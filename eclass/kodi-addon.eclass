@@ -72,18 +72,21 @@ case ${PN} in
 	;;
 esac
 
-if [[ "${PV}" =~ 9999* ]]; then
-	EGIT_REPO_URI="https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}.git"
-	EGIT_BRANCH="${CODENAME:=}"
-else
-	KODI_ADDON_TAG="${KODI_ADDON_TAG:=${PV}-${CODENAME}}"
+case ${PV} in
+	*9999)
+		EGIT_REPO_URI="https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}.git"
+		EGIT_BRANCH="${CODENAME:=}"
+	;;
+	*)
+		KODI_ADDON_TAG="${KODI_ADDON_TAG:=${PV}-${CODENAME}}"
 
-	SRC_URI="
-		https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}/archive/${KODI_ADDON_TAG}.tar.gz
-			-> ${P}.tar.gz
-	"
-	S="${WORKDIR}/${KODI_ADDON_PN}-${KODI_ADDON_TAG}"
-fi
+		SRC_URI="
+			https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}/archive/${KODI_ADDON_TAG}.tar.gz
+				-> ${P}.tar.gz
+		"
+		S="${WORKDIR}/${KODI_ADDON_PN}-${KODI_ADDON_TAG}"
+	;;
+esac
 
 case ${CODENAME} in
 	Omega)

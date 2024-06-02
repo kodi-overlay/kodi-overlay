@@ -52,16 +52,21 @@ esac
 # @PRE_INHERIT
 # @DESCRIPTION:
 # Name for the kodi addon Github source tag name.
+# Not checked with *9999 versions.
 # Example: 21.0.1-Omega
 
-KODI_ADDON_TAG="${KODI_ADDON_TAG:=${PV}-${CODENAME}}"
+if [[ "${PV}" =~ *9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/${KODI_GH_ORG}.git"
+else
+	KODI_ADDON_TAG="${KODI_ADDON_TAG:=${PV}-${CODENAME}}"
 
-SRC_URI="
-	https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}/archive/${KODI_ADDON_TAG}.tar.gz
-		-> ${P}.tar.gz
-"
-
-S="${WORKDIR}/${KODI_ADDON_PN}-${KODI_ADDON_TAG}"
+	SRC_URI="
+		https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}/archive/${KODI_ADDON_TAG}.tar.gz
+			-> ${P}.tar.gz
+	"
+	S="${WORKDIR}/${KODI_ADDON_PN}-${KODI_ADDON_TAG}"
+fi
 
 # @ECLASS_VARIABLE: CODENAME
 # @PRE_INHERIT

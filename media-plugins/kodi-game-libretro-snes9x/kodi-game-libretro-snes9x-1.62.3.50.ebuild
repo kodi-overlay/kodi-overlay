@@ -17,6 +17,7 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	media-plugins/kodi-game-libretro
+	sys-libs/zlib
 	|| (
 		games-emulation/libretro-snes9x
 		games-emulation/snes9x[libretro]

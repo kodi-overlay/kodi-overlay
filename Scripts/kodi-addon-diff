@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2207
+# shellcheck disable=SC2002
+
+set -e
+
+# find media-plugins -name metadata.xml | sed -e 's|\(.*/.*\)/metadata.xml|\1|' | xargs -n1 ./Scripts/kodi-addon-diff
+
+package=${1}
+
+files=$(qlist -e "${package}" | grep "/usr/share/kodi/addons/.*/addon.xml")
+
+if [[ -z ${files} ]]; then
+    exit 0
+fi
+
+if ! type -P xq >/dev/null ; then
+    echo "Missing xq, install app-misc/yq"
+    exit 1
+fi
+
+IFS=$'\n'
+
+# diff metadata
+
+ebuild_path="$(qwhich -I "${package}")"
+ebuild_path="${ebuild_path%/*.ebuild}"
+ebuild_description="$(cat "${ebuild_path}/DESCRIPTION")"
+ebuild_license=( $(cat "${ebuild_path}/LICENSE" | tr ' ' '\n' | sort) )
+
+addon_description=( $(xq -r '.addon.extension.[] | select(."@point"=="xbmc.addon.metadata") | .summary, .description  | select(.!=null).[] | select(."@lang"=="en_GB")."#text"' ${files} ) )
+_addon_license=( $(xq -r '.addon.extension.[] | select(."@point"=="xbmc.addon.metadata").license' ${files} | sort) )
+
+for license in "${_addon_license[@]}"; do
+    case "${license}" in
+        GPLv2)
+            addon_license+=( "GPL-2" )
+            ;;
+        GPLv3)
+            addon_license+=( "GPL-3" )
+            ;;
+        GPL-2.0-or-later)
+            addon_license+=( "GPL-2+" )
+            ;;
+        Public\ Domain)
+            addon_license+=( "public-domain" )
+            ;;
+        Non-commercial)
+            addon_license+=( "free-noncomm" )
+            ;;
+        *)
+            addon_license+=( "${license}" )
+            ;;
+    esac
+done
+
+if ! diff -q <(echo "${ebuild_description}") <(echo "${addon_description[0]}") > /dev/null ; then
+    echo "${package} DESCRIPTION differs:"
+    diff --color=always -u <(echo "${ebuild_description}") <(echo "${addon_description[0]}") | sed '1,3d'
+fi
+
+if ! diff -q <(echo "${ebuild_license[*]}") <(echo "${addon_license[*]}") > /dev/null ; then
+    echo "${package} LICENSE differs:"
+    diff --color=always -u <(echo "${ebuild_license[*]}") <(echo "${addon_license[*]}") | sed '1,3d'
+fi
+
+# check requirements
+
+# --xml-force-list=import: https://github.com/kislyuk/yq/issues/158
+required_addons=( $(xq --xml-force-list=import -r '.addon.requires.import[]."@addon"' "${files}") )
+
+declare -a required_dependencies=()
+for i in "${required_addons[@]}"; do
+    dep=$(qfile -q "/usr/share/kodi/addons/${i}/")
+    if ! [[ "${required_dependencies[*]}" =~ ${dep} ]]; then
+        if [[ ${dep} == "media-tv/kodi" ]]; then
+            continue
+        fi
+        required_dependencies+=( "${dep}" )
+    fi
+done
+
+if [[ "${#required_dependencies[@]}" == 0 ]]; then
+    exit 0
+fi
+
+dependencies=( $(qdepends -r "${package}" | xargs qatom -F "%{CATEGORY}/%{PN}" | sed -n '/^media-plugins/p') )
+
+
+if ! diff --color=always -q <(echo "${dependencies[*]}" | sort) <(echo "${required_dependencies[*]}" | sort) >/dev/null ; then
+    echo "${package} dependencies differs:"
+    diff --color=always -u <(echo "${dependencies[*]}" | sort) <(echo "${required_dependencies[*]}" | sort) | sed '1,3d'
+fi

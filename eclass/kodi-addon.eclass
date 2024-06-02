@@ -74,8 +74,11 @@ esac
 
 case ${PV} in
 	*9999)
+		inherit git-r3
 		EGIT_REPO_URI="https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}.git"
-		EGIT_BRANCH="${CODENAME:=}"
+		if [[ "${PV}" =~ 21* ]]; then
+			EGIT_BRANCH="Omega"
+		fi
 	;;
 	*)
 		KODI_ADDON_TAG="${KODI_ADDON_TAG:=${PV}-${CODENAME}}"

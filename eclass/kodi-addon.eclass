@@ -10,7 +10,7 @@
 # @PROVIDES: cmake
 # @BLURB: Helper for correct building and (importantly) installing Kodi addon packages.
 # @DESCRIPTION:
-# Provides a src_prepare and src_configure function for Kodi addon packages
+# Provides a src_prepare (EAPI 8 and later) and src_configure function for Kodi addon packages.
 
 case ${EAPI} in
 	7|8) ;;
@@ -19,22 +19,46 @@ esac
 
 inherit cmake
 
+# @ECLASS_VARIABLE: CODENAME
+# @PRE_INHERIT
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Kodi development codename that plugin targets. Used for determining the values for S
+# and to add the correct kodi RDEPEND.
+# https://kodi.wiki/view/Codename_history
+#
+# Available EAPI 8 and later.
+
 # @ECLASS_VARIABLE: KODI_ADDON_PN
 # @PRE_INHERIT
 # @DESCRIPTION:
 # Name for the kodi addon, transformed from PN unless specified.
 # Example: kodi-something-nothing -> something.nothing
-
-if [[ -z ${KODI_ADDON_PN} ]]; then
-	KODI_ADDON_PN="${PN##kodi-}"
-	KODI_ADDON_PN="${KODI_ADDON_PN//-/.}"
-fi
+#
+# Available EAPI 8 and later.
 
 # @ECLASS_VARIABLE: KODI_GH_ORG
 # @PRE_INHERIT
 # @DESCRIPTION:
 # Name for the kodi addon Github organization.
 # Example: KODI_GH_ORG="kodi-pvr" -> https://github.com/kodi-pvr
+#
+# Available EAPI 8 and later.
+
+# @ECLASS_VARIABLE: KODI_ADDON_TAG
+# @PRE_INHERIT
+# @DESCRIPTION:
+# Name for the kodi addon Github source tag name.
+# Not checked with *9999 versions.
+# Example: 21.0.1-Omega
+#
+# Available EAPI 8 and later.
+
+if [[ ${EAPI} != 7 ]]; then
+if [[ -z ${KODI_ADDON_PN} ]]; then
+	KODI_ADDON_PN="${PN##kodi-}"
+	KODI_ADDON_PN="${KODI_ADDON_PN//-/.}"
+fi
 
 case ${PN} in
 	kodi-game-*)
@@ -48,13 +72,6 @@ case ${PN} in
 	;;
 esac
 
-# @ECLASS_VARIABLE: KODI_ADDON_TAG
-# @PRE_INHERIT
-# @DESCRIPTION:
-# Name for the kodi addon Github source tag name.
-# Not checked with *9999 versions.
-# Example: 21.0.1-Omega
-
 if [[ "${PV}" =~ *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/${KODI_GH_ORG}.git"
@@ -67,14 +84,6 @@ else
 	"
 	S="${WORKDIR}/${KODI_ADDON_PN}-${KODI_ADDON_TAG}"
 fi
-
-# @ECLASS_VARIABLE: CODENAME
-# @PRE_INHERIT
-# @DEFAULT_UNSET
-# @DESCRIPTION:
-# Kodi development codename that plugin targets. Used for determining the values for S
-# and to add the correct kodi RDEPEND.
-# https://kodi.wiki/view/Codename_history
 
 case ${CODENAME} in
 	Omega)
@@ -95,6 +104,20 @@ case ${CODENAME} in
 		;;
 esac
 
+# @FUNCTION: kodi-addon_src_prepare
+# @DESCRIPTION:
+# Prepare handling for Kodi addons.
+#
+# Available EAPI 8 and later.
+kodi-addon_src_prepare() {
+
+	# Ensure embedded dependencies are removed
+	[ -d depends ] && (rm -rf depends || die)
+
+	cmake_src_prepare
+}
+fi
+
 # @FUNCTION: kodi-addon_src_configure
 # @DESCRIPTION:
 # Configure handling for Kodi addons
@@ -107,15 +130,8 @@ kodi-addon_src_configure() {
 	cmake_src_configure
 }
 
-# @FUNCTION: kodi-addon_src_prepare
-# @DESCRIPTION:
-# Prepare handling for Kodi addons
-kodi-addon_src_prepare() {
-
-	# Ensure embedded dependencies are removed
-	[ -d depends ] && (rm -rf depends || die)
-
-	cmake_src_prepare
-}
-
+if [[ ${EAPI} != 7 ]]; then
 EXPORT_FUNCTIONS src_prepare src_configure
+else
+EXPORT_FUNCTIONS src_configure
+fi

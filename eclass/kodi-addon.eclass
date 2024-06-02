@@ -73,7 +73,6 @@ case ${PN} in
 esac
 
 if [[ "${PV}" =~ 9999* ]]; then
-	inherit git-r3
 	EGIT_REPO_URI="https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}.git"
 	EGIT_BRANCH="${CODENAME:=}"
 else

@@ -3,19 +3,11 @@
 
 EAPI=8
 
-case ${PV} in
-	*9999)
-		if [[ "${PV}" =~ 21* ]]; then
-			CODENAME="Omega"
-		fi
-		inherit git-r3
-	;;
-	*)
-		CODENAME="Omega"
-		KODI_ADDON_TAG="e697156054ea3eb5974fb9727e046287220985e5"
-		KEYWORDS="~amd64 ~arm64 ~x86"
-	;;
-esac
+if [[ ! "${PV}" =~ 9999* ]]; then
+	CODENAME="Omega"
+	KODI_ADDON_TAG="e697156054ea3eb5974fb9727e046287220985e5"
+	KEYWORDS="~amd64 ~arm64 ~x86"
+fi
 
 inherit kodi-addon
 

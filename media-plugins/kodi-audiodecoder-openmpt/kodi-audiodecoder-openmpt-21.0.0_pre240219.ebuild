@@ -8,12 +8,12 @@ KODI_ADDON_TAG="f7cb103de96404fe26938f93cd277a066f77cb49"
 
 inherit kodi-addon
 
-DESCRIPTION="OpenMPT decoder addon "
+DESCRIPTION="OpenMPT decoder addon for Kodi"
 HOMEPAGE="https://github.com/xbmc/audiodecoder.openmpt"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	media-libs/libopenmpt[zlib]

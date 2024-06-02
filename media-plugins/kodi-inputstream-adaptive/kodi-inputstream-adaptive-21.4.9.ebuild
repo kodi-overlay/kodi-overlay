@@ -3,19 +3,12 @@
 
 EAPI=8
 
-case ${PV} in
-	*9999)
-		if [[ "${PV}" =~ 21* ]]; then
-			CODENAME="Omega"
-		fi
-		inherit git-r3
-	;;
-	*)
-		CODENAME="Omega"
-		KEYWORDS="~amd64 ~x86"
-	;;
-esac
-
+if [[ ! "${PV}" =~ 9999* ]]; then
+	CODENAME="Omega"
+	KEYWORDS="~amd64 ~x86"
+else
+	inherit git-r3
+fi
 BENTO4_VERSION="1.6.0-641-Omega" # TODO: unbundle
 
 inherit kodi-addon

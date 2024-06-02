@@ -78,13 +78,13 @@ fi
 
 case ${CODENAME} in
 	Omega)
-		RDEPEND+="=media-tv/kodi-21*"
+		RDEPEND+=">=media-tv/kodi-21"
 		;;
 	Nexus)
-		RDEPEND+="=media-tv/kodi-20*"
+		RDEPEND+=">=media-tv/kodi-20"
 		;;
 	Matrix)
-		RDEPEND+="=media-tv/kodi-19*"
+		RDEPEND+=">=media-tv/kodi-19"
 		;;
 	*)
 		RDEPEND+="media-tv/kodi"

@@ -21,3 +21,10 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
+
+pkg_postinst() {
+	if [[ -n "${REPLACING_VERSIONS}" ]]; then
+		elog "This addon has been deprecated and it is recomended to use"
+		elog "media-plugins/kodi-audiodecoder-openmpt instead of this."
+	fi
+}

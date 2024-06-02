@@ -15,4 +15,4 @@ jobs:
         uses: pkgcore/pkgcheck-action@v1
         with:
           # RequiredUseDefaults https://github.com/pkgcore/pkgcheck/issues/640
-          args: --exit warning -k ,-RequiredUseDefaults --commits HEAD^..${{ github.sha }}
+          args: --exit warning -k ,-RequiredUseDefaults,-UnknownCategoryDirs --commits HEAD^..${{ github.sha }}

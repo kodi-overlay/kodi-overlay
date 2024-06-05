@@ -72,24 +72,22 @@ case ${PN} in
 	;;
 esac
 
-case ${PV} in
-	*9999)
-		inherit git-r3
-		EGIT_REPO_URI="https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}.git"
-		if [[ "${PV}" =~ 21* ]]; then
-			EGIT_BRANCH="Omega"
-		fi
-	;;
-	*)
-		KODI_ADDON_TAG="${KODI_ADDON_TAG:=${PV}-${CODENAME}}"
+if [[ ${PV} =~ 9999$ ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}.git"
+	if [[ "${PV}" =~ 21* ]]; then
+		EGIT_BRANCH="Omega"
+	fi
+else
+	KODI_ADDON_TAG="${KODI_ADDON_TAG:=${PV}-${CODENAME}}"
 
-		SRC_URI="
-			https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}/archive/${KODI_ADDON_TAG}.tar.gz
-				-> ${P}.tar.gz
-		"
-		S="${WORKDIR}/${KODI_ADDON_PN}-${KODI_ADDON_TAG}"
-	;;
-esac
+	SRC_URI="
+		https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}/archive/${KODI_ADDON_TAG}.tar.gz
+			-> ${P}.tar.gz
+	"
+	S="${WORKDIR}/${KODI_ADDON_PN}-${KODI_ADDON_TAG}"
+fi
+unset BASH_REMATCH
 
 case ${CODENAME} in
 	Omega)

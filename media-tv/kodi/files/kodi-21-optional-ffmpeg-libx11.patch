@@ -4,7 +4,7 @@
    else()
      list(APPEND ffmpeg_conf --disable-vdpau)
    endif()
-+  if (CORE_PLATFORM_NAME STREQUAL x11)
++  if ("x11" IN_LIST CORE_PLATFORM_NAME_LC)
 +    list(APPEND ffmpeg_conf --enable-xlib)
 +  else()
 +    list(APPEND ffmpeg_conf --disable-xlib)

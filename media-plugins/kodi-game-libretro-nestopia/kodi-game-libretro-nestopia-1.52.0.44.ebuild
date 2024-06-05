@@ -4,8 +4,7 @@
 EAPI=8
 
 if [[ ! "${PV}" =~ 9999* ]]; then
-	CODENAME="Omega"
-	KODI_ADDON_TAG="${PV}-Nexus"
+	CODENAME="Nexus"
 	KEYWORDS="~amd64 ~x86"
 fi
 

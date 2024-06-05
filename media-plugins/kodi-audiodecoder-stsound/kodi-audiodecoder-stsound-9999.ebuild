@@ -4,7 +4,6 @@
 EAPI=8
 
 if [[ ! "${PV}" =~ 9999* ]]; then
-	CODENAME="Omega"
 	KODI_ADDON_TAG="b72c793e2ada7ab2358568ec5b01fd71ddf7cdb3"
 	KEYWORDS="~amd64 ~x86"
 fi

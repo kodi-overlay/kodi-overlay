@@ -26,6 +26,7 @@ inherit cmake
 # Kodi development codename that plugin targets. Used for determining the values for S
 # and to add the correct kodi RDEPEND.
 # https://kodi.wiki/view/Codename_history
+# Value is inferred from PV if not set.
 #
 # Available EAPI 8 and later.
 
@@ -72,11 +73,32 @@ case ${PN} in
 	;;
 esac
 
+if [[ -z ${CODENAME} ]]; then
+	case ${PV} in
+		21*)
+			CODENAME="Omega"
+			;;
+		20*)
+			CODENAME="Nexus"
+			;;
+		19*)
+			CODENAME="Matrix"
+			;;
+		*)
+			if ! [[ ${PV} =~ 9999$ ]]; then
+				die "Non live ebuild and no codename set"
+			fi
+			unset BASH_REMATCH
+			;;
+	esac
+fi
+
 if [[ ${PV} =~ 9999$ ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}.git"
-	if [[ "${PV}" =~ 21* ]]; then
-		EGIT_BRANCH="Omega"
+
+	if [[ -n ${CODENAME} ]]; then
+		EGIT_BRANCH="${CODENAME}"
 	fi
 else
 	KODI_ADDON_TAG="${KODI_ADDON_TAG:=${PV}-${CODENAME}}"

@@ -122,7 +122,6 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 	>=media-libs/libass-0.15.0:=
 	media-libs/mesa[egl(+),gbm(+)?,wayland?,X?]
 	>=media-libs/taglib-1.9.0
-	=media-video/ffmpeg-6*:=[encode,soc(-)?,postproc,vaapi?,vdpau?,X?]
 	virtual/libiconv
 	virtual/ttf-fonts
 	x11-libs/libdrm
@@ -193,6 +192,15 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 	samba? (
 		>=net-fs/samba-3.4.6[smbclient(+)]
 	)
+	system-ffmpeg? (
+		=media-video/ffmpeg-6*:=[encode,soc(-)?,postproc,vaapi?,vdpau?,X?]
+	)
+	!system-ffmpeg? (
+		app-arch/bzip2
+		app-arch/xz-utils
+		media-libs/dav1d:=
+		net-libs/gnutls:=
+	)
 	udf? (
 		>=dev-libs/libudfread-1.0.0
 	)
@@ -257,6 +265,10 @@ BDEPEND="
 		app-text/doxygen
 	)
 "
+
+PATCHES=(
+	"${FILESDIR}"/kodi-21-optional-ffmpeg-libx11.patch
+)
 
 # bug #544020
 CONFIG_CHECK="~IP_MULTICAST"

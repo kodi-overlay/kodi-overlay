@@ -1,0 +1,3 @@
+# undo mask in main tree
+-media-plugins/kodi-game-libretro-dosbox
+-media-plugins/kodi-game-libretro-nestopia

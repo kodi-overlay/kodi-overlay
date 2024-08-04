@@ -4,7 +4,7 @@
 EAPI=8
 
 if [[ ! "${PV}" =~ 9999* ]]; then
-	CODENAME="Nexus"
+	CODENAME="Omega"
 	KEYWORDS="~amd64 ~x86"
 fi
 

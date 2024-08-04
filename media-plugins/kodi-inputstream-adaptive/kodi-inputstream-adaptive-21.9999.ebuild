@@ -8,7 +8,7 @@ if [[ ! "${PV}" =~ 9999* ]]; then
 else
 	inherit git-r3
 fi
-BENTO4_VERSION="1.6.0-641-Omega" # TODO: unbundle
+BENTO4_VERSION="1.6.0-641-3-Omega" # TODO: unbundle
 
 inherit kodi-addon
 

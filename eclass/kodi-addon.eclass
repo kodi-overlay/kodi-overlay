@@ -75,6 +75,9 @@ esac
 
 if [[ -z ${CODENAME} ]]; then
 	case ${PV} in
+		22*)
+			CODENAME="Piers"
+			;;
 		21*)
 			CODENAME="Omega"
 			;;
@@ -112,6 +115,10 @@ fi
 unset BASH_REMATCH
 
 case ${CODENAME} in
+	Piers)
+		RDEPEND+=">=media-tv/kodi-22"
+		DEPEND+=">=media-tv/kodi-22"
+		;;
 	Omega)
 		RDEPEND+=">=media-tv/kodi-21"
 		DEPEND+=">=media-tv/kodi-21"

@@ -16,7 +16,7 @@ LICENSE="GPL-2"
 SLOT="0"
 
 RDEPEND="
-	virtual/opengl
+	media-libs/libglvnd
 "
 DEPEND="
 	${RDEPEND}

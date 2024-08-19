@@ -67,7 +67,7 @@ else
 	MY_PV="${MY_PV}-${CODENAME}"
 	MY_P="${PN}-${MY_PV}"
 	SRC_URI+=" https://github.com/xbmc/xbmc/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+	KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 	S=${WORKDIR}/xbmc-${MY_PV}
 fi
 
@@ -79,7 +79,7 @@ SLOT="0"
 IUSE="airplay alsa bluetooth bluray caps cec +css dbus doc eventclients gbm gles lcms libusb lirc mariadb mysql nfs +optical pipewire pulseaudio samba soc +system-ffmpeg test udf udev upnp vaapi vdpau wayland webserver X +xslt zeroconf ${CPU_FLAGS}"
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
-	^^ ( gbm wayland X )
+	|| ( gbm wayland X )
 	?? ( mariadb mysql )
 	bluray? ( udf )
 	gbm? ( udev )
@@ -322,11 +322,17 @@ src_prepare() {
 }
 
 src_configure() {
+	local core_platform=(
+		$(usev gbm)
+		$(usev wayland)
+		$(usev X x11)
+	)
+
 	local mycmakeargs=(
 		-Wno-dev # less noise
 
 		-DAPP_RENDER_SYSTEM=$(usex gles gles gl)
-		-DCORE_PLATFORM_NAME=$(usev gbm)$(usev wayland)$(usev X x11)
+		-DCORE_PLATFORM_NAME="${core_platform[*]}"
 		-Ddocdir="${EPREFIX}/usr/share/doc/${PF}"
 		-DENABLE_TESTING=$(usex test)
 		-DVERBOSE=ON

@@ -6,6 +6,6 @@
 		<name>David GUGLIELMI</name>
 	</maintainer>
 	<upstream>
-		<remote-id type="github">kodi-pvr/pvr.pctv</remote-id>
+		<remote-id type="github">kodi-pvr/pvr.plutotv</remote-id>
 	</upstream>
 </pkgmetadata>

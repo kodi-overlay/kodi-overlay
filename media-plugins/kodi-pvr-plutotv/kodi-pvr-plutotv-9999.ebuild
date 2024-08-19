@@ -9,14 +9,14 @@ fi
 
 inherit kodi-addon
 
-DESCRIPTION="Kodi's PCTV client addon"
-HOMEPAGE="https://github.com/kodi-pvr/pvr.pctv"
+DESCRIPTION="Kodi's Pluto.tv client addon"
+HOMEPAGE="https://github.com/kodi-pvr/pvr.plutotv"
 
 LICENSE="GPL-2"
 SLOT="0"
 
 RDEPEND="
-	dev-libs/jsoncpp:=
+	dev-libs/rapidjson
 "
 DEPEND="
 	${RDEPEND}

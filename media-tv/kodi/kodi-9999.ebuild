@@ -110,7 +110,7 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 	>=dev-libs/libcdio-2.1.0:=[cxx]
 	>=dev-libs/libfmt-6.1.2:=
 	dev-libs/libfstrcmp
-	dev-libs/libpcre[cxx]
+	dev-libs/libpcre2
 	>=dev-libs/openssl-1.1.1k:0=
 	>=dev-libs/spdlog-1.5.0:=
 	dev-libs/tinyxml[stl]
@@ -398,7 +398,7 @@ src_configure() {
 		-DENABLE_INTERNAL_FMT=OFF
 		-DENABLE_INTERNAL_FSTRCMP=OFF
 		-DENABLE_INTERNAL_GTEST=OFF
-		-DENABLE_INTERNAL_PCRE=OFF
+		-DENABLE_INTERNAL_PCRE2=OFF
 		-DENABLE_INTERNAL_RapidJSON=OFF
 		-DENABLE_INTERNAL_SPDLOG=OFF
 		-DENABLE_INTERNAL_TAGLIB=OFF

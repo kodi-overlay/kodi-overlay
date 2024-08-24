@@ -13,6 +13,13 @@ SLOT="0"
 
 KEYWORDS="~amd64 ~x86"
 
+src_prepare() {
+	# violates strict aliasing rules
+	filter-lto
+
+	libretro-core_src_prepare
+}
+
 src_compile() {
 	append-cxxflags -std=gnu++11
 	default

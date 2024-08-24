@@ -5,7 +5,7 @@ EAPI=8
 
 LIBRETRO_REPO_NAME="libretro/nestopia"
 LIBRETRO_COMMIT_SHA="b99ede358b2219602443e7f414eabf81e17da244"
-inherit libretro-core
+inherit flag-o-matic libretro-core
 
 DESCRIPTION="Nestopia libretro port"
 
@@ -15,3 +15,10 @@ LICENSE="GPL-2+"
 SLOT="0"
 
 KEYWORDS="~amd64 ~x86"
+
+src_prepare() {
+	# violates ODR
+	filter-lto
+
+	libretro-core_src_prepare
+}

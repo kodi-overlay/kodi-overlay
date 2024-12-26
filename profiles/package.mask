@@ -1,7 +1,3 @@
-# undo mask in main tree
--media-plugins/kodi-game-libretro-dosbox
--media-plugins/kodi-game-libretro-nestopia
-
 # mask ebuilds pending for Kodi 22
 =media-plugins/kodi-inputstream-adaptive-22*
 =media-plugins/kodi-inputstream-ffmpegdirect-22*

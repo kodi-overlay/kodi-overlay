@@ -6,6 +6,7 @@
 =media-plugins/kodi-inputstream-adaptive-22*
 =media-plugins/kodi-inputstream-ffmpegdirect-22*
 =media-plugins/kodi-inputstream-rtmp-22*
+=media-plugins/kodi-game-libretro-22*
 =media-plugins/kodi-pvr-argustv-22*
 =media-plugins/kodi-pvr-demo-22*
 =media-plugins/kodi-pvr-dvblink-22*
@@ -24,3 +25,9 @@
 =media-plugins/kodi-pvr-vuplus-22*
 =media-plugins/kodi-pvr-wmc-22*
 =media-plugins/kodi-pvr-zattoo-22*
+=media-plugins/kodi-screensaver-asteroids-22*
+=media-plugins/kodi-screensaver-biogenesis-22*
+=media-plugins/kodi-screensaver-greynetic-22*
+=media-plugins/kodi-screensaver-pingpong-22*
+=media-plugins/kodi-screensaver-pyro-22*
+=media-plugins/kodi-screensaver-stars-22*

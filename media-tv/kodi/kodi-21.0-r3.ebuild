@@ -120,7 +120,7 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 	>=media-libs/freetype-2.10.1
 	media-libs/harfbuzz:=
 	>=media-libs/libass-0.15.0:=
-	media-libs/mesa[egl(+),gbm(+)?,wayland?,X?]
+	media-libs/mesa[opengl,wayland?,X?]
 	>=media-libs/taglib-1.9.0
 	sci-libs/kissfft
 	virtual/libiconv
@@ -156,12 +156,6 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 		>=dev-libs/libinput-1.10.5:=
 		media-libs/libdisplay-info
 		x11-libs/libxkbcommon
-	)
-	gles? (
-		|| (
-			>=media-libs/mesa-24.1.0_rc1[opengl]
-			<media-libs/mesa-24.1.0_rc1[gles2]
-		)
 	)
 	!gles? (
 		media-libs/glu
@@ -221,7 +215,7 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 		>=x11-libs/libxkbcommon-0.4.1[wayland]
 	)
 	webserver? (
-		>=net-libs/libmicrohttpd-0.9.77:=[messages(+)]
+		>=net-libs/libmicrohttpd-0.9.77:=
 	)
 	X? (
 		x11-libs/libX11

@@ -129,7 +129,7 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 	media-libs/harfbuzz:=
 	>=media-libs/libass-0.15.0:=
 	media-libs/mesa[opengl,wayland?,X?]
-	>=media-libs/taglib-1.9.0
+	media-libs/taglib:=
 	sci-libs/kissfft
 	virtual/libiconv
 	virtual/ttf-fonts
@@ -272,6 +272,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/kodi-21-optional-ffmpeg-libx11.patch
 	"${FILESDIR}"/kodi-21.1-silence-libdvdread-git.patch
+	"${FILESDIR}"/kodi-21.1-fix-gcc15.patch
 )
 
 # bug #544020

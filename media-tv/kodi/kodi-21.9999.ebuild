@@ -196,7 +196,7 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 		>=net-fs/samba-3.4.6[smbclient(+)]
 	)
 	system-ffmpeg? (
-		=media-video/ffmpeg-6*:=[encode(+),soc(-)?,postproc,vaapi?,vdpau?,X?]
+		media-video/ffmpeg-compat:6=[encode(+),soc(-)?,postproc,vaapi?,vdpau?,X?]
 	)
 	!system-ffmpeg? (
 		app-arch/bzip2
@@ -398,8 +398,6 @@ src_configure() {
 		-DENABLE_VDPAU=$(usex vdpau)
 		-DENABLE_XSLT=$(usex xslt)
 
-		-DWITH_FFMPEG=$(usex system-ffmpeg)
-
 		#To bundle or not
 		-DENABLE_INTERNAL_CROSSGUID=OFF
 		-DENABLE_INTERNAL_DAV1D=OFF
@@ -427,9 +425,16 @@ src_configure() {
 	use cec && mycmakeargs+=( -DENABLE_INTERNAL_CEC=OFF )
 	use css && mycmakeargs+=( -Dlibdvdcss_URL="${DISTDIR}/libdvdcss-${LIBDVDCSS_VERSION}.tar.gz" )
 	use nfs && mycmakeargs+=( -DENABLE_INTERNAL_NFS=OFF )
-	use !system-ffmpeg && mycmakeargs+=(
-		-DFFMPEG_URL="${DISTDIR}/ffmpeg-${FFMPEG_VERSION}.tar.gz"
-	)
+	if use system-ffmpeg; then
+		mycmakeargs+=(
+			-DWITH_FFMPEG="${EPREFIX}/usr/lib/ffmpeg${FFMPEG_VERSION:0:1}"
+		)
+	else
+		mycmakeargs+=(
+			-DWITH_FFMPEG=OFF
+			-DFFMPEG_URL="${DISTDIR}/ffmpeg-${FFMPEG_VERSION}.tar.gz"
+		)
+	fi
 	use !udev && mycmakeargs+=( -DENABLE_LIBUSB=$(usex libusb) )
 	use X && use !gles && mycmakeargs+=( -DENABLE_GLX=ON )
 

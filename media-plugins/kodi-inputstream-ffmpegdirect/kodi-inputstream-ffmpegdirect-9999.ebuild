@@ -16,7 +16,7 @@ LICENSE="GPL-2"
 SLOT="0"
 
 COMMON_DEPEND="
-	media-video/ffmpeg:=[encode,libxml2,zlib]
+	media-video/ffmpeg:=[encode(+),libxml2,zlib]
 "
 RDEPEND="
 	${COMMON_DEPEND}

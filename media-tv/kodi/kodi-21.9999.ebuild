@@ -31,8 +31,8 @@ PYTHON_COMPAT=( python3_{10..13} )
 # See cmake/scripts/common/ArchSetup.cmake for available options
 CPU_FLAGS="cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3 cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2 cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_arm_neon"
 
-inherit autotools cmake desktop flag-o-matic java-pkg-2 libtool linux-info optfeature pax-utils python-single-r1 \
-	toolchain-funcs xdg
+inherit autotools cmake desktop ffmpeg-compat flag-o-matic java-pkg-2 libtool
+inherit linux-info optfeature pax-utils python-single-r1 toolchain-funcs xdg
 
 DESCRIPTION="A free and open source media-player and entertainment hub"
 HOMEPAGE="https://kodi.tv/"
@@ -67,7 +67,7 @@ else
 	MY_PV="${MY_PV}-${CODENAME}"
 	MY_P="${PN}-${MY_PV}"
 	SRC_URI+=" https://github.com/xbmc/xbmc/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 	S=${WORKDIR}/xbmc-${MY_PV}
 fi
 
@@ -196,7 +196,7 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 		>=net-fs/samba-3.4.6[smbclient(+)]
 	)
 	system-ffmpeg? (
-		=media-video/ffmpeg-6*:=[encode(+),soc(-)?,postproc,vaapi?,vdpau?,X?]
+		media-video/ffmpeg-compat:6=[encode(+),soc(-)?,postproc,vaapi?,vdpau?,X?]
 	)
 	!system-ffmpeg? (
 		app-arch/bzip2
@@ -272,6 +272,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/kodi-21-optional-ffmpeg-libx11.patch
 	"${FILESDIR}"/kodi-21.1-silence-libdvdread-git.patch
+	"${FILESDIR}"/kodi-21.2-pipewire-1.4.0-fix.patch
 )
 
 # bug #544020
@@ -437,6 +438,13 @@ src_configure() {
 		local name=${flag#cpu_flags_*_}
 		mycmakeargs+=( -DENABLE_${name^^}=$(usex ${flag}) )
 	done
+
+	if use system-ffmpeg; then
+		# TODO: drop compat and allow using >=media-video/ffmpeg-7
+		ffmpeg_compat_setup 6
+		ffmpeg_compat_add_flags
+		mycmakeargs+=( -DFFMPEG_INCLUDE_DIRS="${SYSROOT}$(ffmpeg_compat_get_prefix 6)" )
+	fi
 
 	if ! is-flag -DNDEBUG && ! is-flag -D_DEBUG ; then
 		# Kodi requires one of the 'NDEBUG' or '_DEBUG' defines

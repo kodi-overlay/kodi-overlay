@@ -245,7 +245,7 @@ RDEPEND="
 DEPEND="
 	${COMMON_DEPEND}
 	${COMMON_TARGET_DEPEND}
-	>=dev-libs/rapidjson-1.0.2
+	>=dev-cpp/nlohmann_json-3.2.0
 	test? (
 		>=dev-cpp/gtest-1.10.0
 	)

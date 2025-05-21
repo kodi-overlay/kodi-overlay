@@ -6,14 +6,14 @@
 # David GUGLIELMI <david.guglielmi@gmail.com>
 # @AUTHOR:
 # candrews@gentoo.org
-# @SUPPORTED_EAPIS: 7 8
+# @SUPPORTED_EAPIS: 8
 # @PROVIDES: cmake
 # @BLURB: Helper for correct building and (importantly) installing Kodi addon packages.
 # @DESCRIPTION:
-# Provides a src_prepare (EAPI 8 and later) and src_configure function for Kodi addon packages.
+# Provides a src_prepare and src_configure function for Kodi addon packages.
 
 case ${EAPI} in
-	7|8) ;;
+	8) ;;
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
@@ -27,24 +27,18 @@ inherit cmake
 # and to add the correct kodi RDEPEND.
 # https://kodi.wiki/view/Codename_history
 # Value is inferred from PV if not set.
-#
-# Available EAPI 8 and later.
 
 # @ECLASS_VARIABLE: KODI_ADDON_PN
 # @PRE_INHERIT
 # @DESCRIPTION:
 # Name for the kodi addon, transformed from PN unless specified.
 # Example: kodi-something-nothing -> something.nothing
-#
-# Available EAPI 8 and later.
 
 # @ECLASS_VARIABLE: KODI_GH_ORG
 # @PRE_INHERIT
 # @DESCRIPTION:
 # Name for the kodi addon Github organization.
 # Example: KODI_GH_ORG="kodi-pvr" -> https://github.com/kodi-pvr
-#
-# Available EAPI 8 and later.
 
 # @ECLASS_VARIABLE: KODI_ADDON_TAG
 # @PRE_INHERIT
@@ -52,10 +46,7 @@ inherit cmake
 # Name for the kodi addon Github source tag name.
 # Not checked with *9999 versions.
 # Example: 21.0.1-Omega
-#
-# Available EAPI 8 and later.
 
-if [[ ${EAPI} != 7 ]]; then
 if [[ -z ${KODI_ADDON_PN} ]]; then
 	KODI_ADDON_PN="${PN##kodi-}"
 	KODI_ADDON_PN="${KODI_ADDON_PN//-/.}"
@@ -140,8 +131,6 @@ esac
 # @FUNCTION: kodi-addon_src_prepare
 # @DESCRIPTION:
 # Prepare handling for Kodi addons.
-#
-# Available EAPI 8 and later.
 kodi-addon_src_prepare() {
 
 	# Ensure embedded dependencies are removed
@@ -149,7 +138,6 @@ kodi-addon_src_prepare() {
 
 	cmake_src_prepare
 }
-fi
 
 # @FUNCTION: kodi-addon_src_configure
 # @DESCRIPTION:
@@ -163,8 +151,4 @@ kodi-addon_src_configure() {
 	cmake_src_configure
 }
 
-if [[ ${EAPI} != 7 ]]; then
 EXPORT_FUNCTIONS src_prepare src_configure
-else
-EXPORT_FUNCTIONS src_configure
-fi

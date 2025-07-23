@@ -28,3 +28,4 @@
 =media-plugins/kodi-screensaver-pingpong-22*
 =media-plugins/kodi-screensaver-pyro-22*
 =media-plugins/kodi-screensaver-stars-22*
+=media-plugins/kodi-visualization-matrix-22*

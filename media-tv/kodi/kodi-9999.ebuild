@@ -26,7 +26,7 @@ JAVA_PKG_WANT_SOURCE="21"
 JAVA_PKG_WANT_TARGET="21"
 
 PYTHON_REQ_USE="sqlite,ssl"
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 # See cmake/scripts/common/ArchSetup.cmake for available options
 CPU_FLAGS="cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3 cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2 cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_arm_neon"
@@ -196,7 +196,7 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 		>=net-fs/samba-3.4.6[smbclient(+)]
 	)
 	system-ffmpeg? (
-		=media-video/ffmpeg-7*:=[encode(+),soc(-)?,postproc,vaapi?,vdpau?,X?]
+		=media-video/ffmpeg-7*:=[encode(+),soc(-)?,postproc(-),vaapi?,vdpau?,X?]
 	)
 	!system-ffmpeg? (
 		app-arch/bzip2
@@ -263,7 +263,7 @@ BDEPEND="
 	dev-build/cmake
 	dev-lang/swig
 	virtual/pkgconfig
-	<=virtual/jre-21:*
+	<=virtual/jre-21-r9999:*
 	doc? (
 		app-text/doxygen
 	)
@@ -476,6 +476,9 @@ src_test() {
 		# Tries to ping localhost, naturally breaking network-sandbox
 		TestNetwork.PingHost
 	)
+
+	# Tests assumes bluray support is enabled
+	use !bluray && CMAKE_SKIP_TESTS+=( TestURIUtils.GetBasePath )
 
 	if use arm || use x86; then
 		# bug #779184

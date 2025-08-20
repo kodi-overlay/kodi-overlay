@@ -196,7 +196,7 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 		>=net-fs/samba-3.4.6[smbclient(+)]
 	)
 	system-ffmpeg? (
-		media-video/ffmpeg-compat:6=[encode(+),soc(-)?,postproc,vaapi?,vdpau?,X?]
+		media-video/ffmpeg-compat:6=[encode(+),soc(-)?,postproc(-),vaapi?,vdpau?,X?]
 	)
 	!system-ffmpeg? (
 		app-arch/bzip2
@@ -263,7 +263,7 @@ BDEPEND="
 	dev-build/cmake
 	dev-lang/swig
 	virtual/pkgconfig
-	<=virtual/jre-21:*
+	<=virtual/jre-21-r9999:*
 	doc? (
 		app-text/doxygen
 	)
@@ -272,7 +272,6 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/kodi-21-optional-ffmpeg-libx11.patch
 	"${FILESDIR}"/kodi-21.1-silence-libdvdread-git.patch
-	"${FILESDIR}"/kodi-21.2-pipewire-1.4.0-fix.patch
 )
 
 # bug #544020

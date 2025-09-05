@@ -1,0 +1,15 @@
+diff '--color=auto' -dNur a/src/HeifPicture.cpp b/src/HeifPicture.cpp
+--- a/src/HeifPicture.cpp       2025-08-25 07:09:21.000000000 +0200
++++ b/src/HeifPicture.cpp       2025-09-05 18:11:21.709072920 +0200
+@@ -187,7 +187,11 @@
+     return false;
+   }
+
++#if LIBHEIF_HAVE_VERSION(1, 20, 1)
++  size_t stride;
++#else
+   int stride;
++#endif
+   const uint8_t* data = img.get_plane(heif_channel_interleaved, &stride);
+   if (!data)
+     return false;

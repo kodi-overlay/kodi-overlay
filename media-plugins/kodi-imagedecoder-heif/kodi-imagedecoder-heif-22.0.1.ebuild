@@ -23,3 +23,7 @@ DEPEND="
 	${RDEPEND}
 	media-libs/libde265
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-libheif-1.20-compat.patch
+)

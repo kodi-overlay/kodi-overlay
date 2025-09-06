@@ -1,6 +1,7 @@
 # mask ebuilds pending for Kodi 22
 =media-plugins/kodi-game-libretro-22*
 =media-plugins/kodi-imagedecoder-heif-22*
+=media-plugins/kodi-imagedecoder-raw-22*
 =media-plugins/kodi-inputstream-adaptive-22*
 =media-plugins/kodi-inputstream-ffmpegdirect-22*
 =media-plugins/kodi-inputstream-rtmp-22*

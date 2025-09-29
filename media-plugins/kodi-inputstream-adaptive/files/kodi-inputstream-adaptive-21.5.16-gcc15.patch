@@ -1,0 +1,12 @@
+diff --git a/src/common/AdaptiveUtils.h b/src/common/AdaptiveUtils.h
+index 0bc17bc6..8cdf2da8 100644
+--- a/src/common/AdaptiveUtils.h
++++ b/src/common/AdaptiveUtils.h
+@@ -9,6 +9,7 @@
+ #pragma once
+ 
+ #include <algorithm>
++#include <cstdint>
+ #include <limits>
+ #include <memory>
+ #include <string>

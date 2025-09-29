@@ -1,0 +1,11 @@
+diff '--color=auto' -dNur a/depends/common/rcheevos/CMakeLists.txt b/depends/common/rcheevos/CMakeLists.txt
+--- a/depends/common/rcheevos/CMakeLists.txt	2025-09-29 16:54:25.181882399 +0200
++++ b/depends/common/rcheevos/CMakeLists.txt	2025-09-29 16:58:15.616799476 +0200
+@@ -1,6 +1,6 @@
+ project(rcheevos)
+ 
+-cmake_minimum_required(VERSION 3.0)
++cmake_minimum_required(VERSION 3.5)
+ 
+ # Disable Lua for now
+ add_definitions(-DRC_DISABLE_LUA)

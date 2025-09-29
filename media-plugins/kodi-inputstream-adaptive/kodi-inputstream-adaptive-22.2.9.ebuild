@@ -38,6 +38,10 @@ DEPEND="
 	test? ( dev-cpp/gtest )
 "
 
+PATCHES=(
+       "${FILESDIR}"/${PN}-21.5.16-gcc15.patch
+)
+
 src_unpack() {
 	if [[ ! "${PV}" =~ 9999* ]]; then
 		unpack ${P}.tar.gz

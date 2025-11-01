@@ -33,10 +33,6 @@ DEPEND="
 	${RDEPEND}
 "
 
-PATCHES=(
-        "${FILESDIR}"/${PN}-cmake4.patch
-)
-
 src_unpack() {
 	if [[ ! "${PV}" =~ 9999* ]]; then
 		unpack ${P}.tar.gz

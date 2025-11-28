@@ -1,0 +1,11 @@
+diff '--color=auto' -dNur a/src/tvheadend/HTSPVFS.h b/src/tvheadend/HTSPVFS.h
+--- a/src/tvheadend/HTSPVFS.h	2025-01-18 00:44:06.000000000 +0100
++++ b/src/tvheadend/HTSPVFS.h	2025-11-28 09:57:10.462805405 +0100
+@@ -7,6 +7,7 @@
+ 
+ #pragma once
+ 
++#include <cstdint>
+ #include <memory>
+ #include <string>
+ 

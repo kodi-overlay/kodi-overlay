@@ -18,3 +18,7 @@ SLOT="0"
 DEPEND="
 	${RDEPEND}
 "
+
+PATCHES=(
+	"${FILESDIR}"/${P}-gcc15.patch
+)

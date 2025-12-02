@@ -18,7 +18,7 @@ KEYWORDS="~amd64 ~x86"
 RESTRICT="bindist"
 
 CDEPEND="
-	sys-libs/zlib
+	virtual/zlib:=
 "
 RDEPEND="
 	${CDEPEND}

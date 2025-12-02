@@ -21,5 +21,5 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	sys-libs/zlib
+	virtual/zlib:=
 "

@@ -22,7 +22,7 @@ DEPEND="
 	${RDEPEND}
 	app-arch/xz-utils
 	app-arch/bzip2
-	sys-libs/zlib
+	virtual/zlib:=
 	app-arch/lz4
 	dev-libs/lzo:2
 	dev-libs/openssl

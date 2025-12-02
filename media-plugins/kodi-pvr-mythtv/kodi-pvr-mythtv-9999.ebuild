@@ -17,7 +17,7 @@ LICENSE="GPL-2"
 SLOT="0"
 
 RDEPEND="
-	sys-libs/zlib
+	virtual/zlib:=
 "
 DEPEND="
 	${RDEPEND}

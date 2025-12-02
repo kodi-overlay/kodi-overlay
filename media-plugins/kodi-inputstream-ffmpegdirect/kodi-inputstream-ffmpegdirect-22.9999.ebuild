@@ -24,7 +24,7 @@ RDEPEND="
 DEPEND="
 	${COMMON_DEPEND}
 	app-arch/bzip2
-	sys-libs/zlib
+	virtual/zlib:=
 "
 BDEPEND="
 	virtual/pkgconfig

@@ -18,7 +18,7 @@ SLOT="0"
 
 RDEPEND="
 	media-plugins/kodi-game-libretro
-	sys-libs/zlib
+	virtual/zlib:=
 	|| (
 		games-emulation/libretro-snes9x
 		games-emulation/snes9x[libretro]

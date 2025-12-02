@@ -22,5 +22,5 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	dev-libs/openssl
-	sys-libs/zlib
+	virtual/zlib:=
 "

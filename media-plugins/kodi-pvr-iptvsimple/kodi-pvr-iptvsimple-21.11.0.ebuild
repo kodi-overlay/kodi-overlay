@@ -18,7 +18,7 @@ SLOT="0"
 RDEPEND="
 	app-arch/xz-utils
 	dev-libs/pugixml
-	sys-libs/zlib
+	virtual/zlib:=
 "
 DEPEND="
 	${RDEPEND}

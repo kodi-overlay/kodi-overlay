@@ -27,7 +27,6 @@ RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
 	dev-libs/pugixml
-	=media-tv/kodi-21*
 "
 RDEPEND="
 	${COMMON_DEPEND}

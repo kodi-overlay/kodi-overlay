@@ -16,7 +16,7 @@ LICENSE="GPL-2"
 SLOT="0"
 
 RDEPEND="
-	dev-libs/tinyxml
+	dev-libs/tinyxml2:=
 	virtual/libudev:=
 "
 DEPEND="

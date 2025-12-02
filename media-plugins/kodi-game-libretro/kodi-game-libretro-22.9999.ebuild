@@ -9,7 +9,7 @@ else
 	inherit git-r3
 fi
 
-LIBRETROCOMMON_COMMIT_ID="50c15a88eb741cbe675743a282d8cc4c89421e3f"
+LIBRETROCOMMON_COMMIT_ID="ad9124f1ecc5d0092fd285cbf9c4ffac317b1a65"
 RCHEEVOS_VERSION="9.2.0"
 
 inherit kodi-addon

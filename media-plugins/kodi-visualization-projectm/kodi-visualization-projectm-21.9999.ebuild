@@ -17,7 +17,7 @@ SLOT="0"
 
 RDEPEND="
 	media-libs/libprojectm:0/2
-	media-libs/libglvnd
+	virtual/opengl
 "
 DEPEND="
 	${RDEPEND}

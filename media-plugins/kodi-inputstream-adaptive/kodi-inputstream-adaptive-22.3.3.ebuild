@@ -38,7 +38,7 @@ DEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-21.5.17-gcc15.patch
+	"${FILESDIR}"/${PN}-21.5.18-gcc15.patch
 )
 
 src_unpack() {

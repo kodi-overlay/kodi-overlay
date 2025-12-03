@@ -17,6 +17,7 @@ SLOT="0"
 
 RDEPEND="
 	dev-libs/tinyxml2:=
+	virtual/zlib:=
 "
 DEPEND="
 	${RDEPEND}

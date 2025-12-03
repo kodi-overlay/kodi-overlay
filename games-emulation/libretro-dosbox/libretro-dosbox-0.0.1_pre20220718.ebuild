@@ -16,6 +16,7 @@ KEYWORDS="~amd64 ~x86"
 src_prepare() {
 	# violates strict aliasing rules
 	filter-lto
+	append-flags -fno-strict-aliasing
 
 	libretro-core_src_prepare
 }

@@ -41,14 +41,6 @@ PATCHES=(
 	"${FILESDIR}"/${P}-gcc15.patch
 )
 
-src_unpack() {
-	if [[ ! "${PV}" =~ 9999* ]]; then
-		unpack ${PN}-${KODI_ADDON_TAG}.tar.gz
-	else
-		git-r3_src_unpack
-	fi
-}
-
 src_prepare() {
 	# depend removal breaks build
 	cmake_src_prepare

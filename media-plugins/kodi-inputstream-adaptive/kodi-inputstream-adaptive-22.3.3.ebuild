@@ -3,11 +3,6 @@
 
 EAPI=8
 
-if [[ ! "${PV}" =~ 9999* ]]; then
-	KEYWORDS="~amd64 ~x86"
-else
-	inherit git-r3
-fi
 BENTO4_VERSION="1.6.0-641-3-Omega" # TODO: unbundle
 
 inherit kodi-addon
@@ -21,6 +16,9 @@ SRC_URI+="
 
 LICENSE="GPL-2"
 SLOT="0"
+
+# TODO: uncomment when 22 with keywords available
+#KEYWORDS="~amd64 ~x86"
 
 IUSE="test"
 RESTRICT="!test? ( test )"

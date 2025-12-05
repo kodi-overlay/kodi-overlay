@@ -3,9 +3,6 @@
 
 EAPI=8
 
-if [[ ! "${PV}" =~ 9999* ]]; then
-	KEYWORDS="~amd64"
-fi
 KODI_GH_ORG="rbuehlma"
 
 inherit kodi-addon
@@ -15,6 +12,9 @@ HOMEPAGE="https://github.com/rbuehlma/pvr.zattoo"
 
 LICENSE="GPL-2+"
 SLOT="0"
+
+# TODO: uncomment when 22 with keywords available
+#KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-libs/rapidjson

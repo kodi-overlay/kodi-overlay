@@ -14,7 +14,3 @@ HOMEPAGE="https://github.com/xbmc/audiodecoder.vgmstream"
 
 LICENSE="GPL-2"
 SLOT="0"
-
-DEPEND="
-	${RDEPEND}
-"

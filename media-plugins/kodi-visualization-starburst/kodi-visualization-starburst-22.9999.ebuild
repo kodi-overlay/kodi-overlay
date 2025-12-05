@@ -3,11 +3,6 @@
 
 EAPI=8
 
-if [[ ! "${PV}" =~ 9999* ]]; then
-	KODI_ADDON_TAG="7923772cd986849531bdfee0a0bc989842b41996"
-	KEYWORDS="~amd64 ~arm64 ~x86"
-fi
-
 inherit kodi-addon
 
 DESCRIPTION="StarBurst visualizer for Kodi"

@@ -3,11 +3,6 @@
 
 EAPI=8
 
-if [[ ! "${PV}" =~ 9999* ]]; then
-	KODI_ADDON_TAG="a8cb12592900fcd099d65d7760cbb113489ec884"
-	KEYWORDS="~amd64 ~arm64 ~x86"
-fi
-
 inherit kodi-addon
 
 DESCRIPTION="Goom visualizer for Kodi"

@@ -37,10 +37,6 @@ DEPEND="
 	test? ( dev-cpp/gtest )
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-21.5.18-gcc15.patch
-)
-
 src_unpack() {
 	if [[ ! "${PV}" =~ 9999* ]]; then
 		unpack ${PN}-${KODI_ADDON_TAG}.tar.gz

@@ -3,10 +3,6 @@
 
 EAPI=8
 
-if [[ ! "${PV}" =~ 9999* ]]; then
-	KEYWORDS="~amd64 ~x86"
-fi
-
 inherit kodi-addon
 
 DESCRIPTION="Libretro compatibility layer for the Kodi Game API"
@@ -14,6 +10,9 @@ HOMEPAGE="https://github.com/xbmc/peripheral.joystick"
 
 LICENSE="GPL-2"
 SLOT="0"
+
+# TODO: uncomment when 22 with keywords available
+#KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-libs/tinyxml2:=

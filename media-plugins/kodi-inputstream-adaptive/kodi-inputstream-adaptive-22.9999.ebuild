@@ -3,11 +3,6 @@
 
 EAPI=8
 
-if [[ ! "${PV}" =~ 9999* ]]; then
-	KEYWORDS="~amd64 ~x86"
-else
-	inherit git-r3
-fi
 BENTO4_VERSION="1.6.0-641-3-Omega" # TODO: unbundle
 
 inherit kodi-addon
@@ -36,14 +31,6 @@ DEPEND="
 	dev-libs/rapidjson
 	test? ( dev-cpp/gtest )
 "
-
-src_unpack() {
-	if [[ ! "${PV}" =~ 9999* ]]; then
-		unpack ${PN}-${KODI_ADDON_TAG}.tar.gz
-	else
-		git-r3_src_unpack
-	fi
-}
 
 src_prepare() {
 	# depend removal breaks build

@@ -3,11 +3,6 @@
 
 EAPI=8
 
-if [[ ! "${PV}" =~ 9999* ]]; then
-	KODI_ADDON_TAG="e697156054ea3eb5974fb9727e046287220985e5"
-	KEYWORDS="~amd64 ~arm64 ~x86"
-fi
-
 inherit kodi-addon
 
 DESCRIPTION="Modplug decoder addon for Kodi"

@@ -3,12 +3,6 @@
 
 EAPI=8
 
-if [[ ! "${PV}" =~ 9999* ]]; then
-	KEYWORDS="~amd64 ~x86"
-else
-	inherit git-r3
-fi
-
 LIBRETROCOMMON_COMMIT_ID="ad9124f1ecc5d0092fd285cbf9c4ffac317b1a65"
 RCHEEVOS_VERSION="9.2.0"
 
@@ -32,14 +26,6 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-
-src_unpack() {
-	if [[ ! "${PV}" =~ 9999* ]]; then
-		unpack ${PN}-${KODI_ADDON_TAG}.tar.gz
-	else
-		git-r3_src_unpack
-	fi
-}
 
 src_prepare() {
 	for dep in windows windowsstore common/tinyxml; do

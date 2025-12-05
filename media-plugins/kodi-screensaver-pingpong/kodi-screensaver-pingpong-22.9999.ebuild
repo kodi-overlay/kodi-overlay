@@ -3,10 +3,6 @@
 
 EAPI=8
 
-if [[ ! "${PV}" =~ 9999* ]]; then
-	KEYWORDS="~amd64 ~x86"
-fi
-
 inherit kodi-addon
 
 DESCRIPTION="Ping-pong screensaver for Kodi"

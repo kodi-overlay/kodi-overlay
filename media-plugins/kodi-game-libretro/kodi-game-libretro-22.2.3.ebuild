@@ -33,14 +33,6 @@ DEPEND="
 	${RDEPEND}
 "
 
-src_unpack() {
-	if [[ ! "${PV}" =~ 9999* ]]; then
-		unpack ${PN}-${KODI_ADDON_TAG}.tar.gz
-	else
-		git-r3_src_unpack
-	fi
-}
-
 src_prepare() {
 	for dep in windows windowsstore common/tinyxml; do
 		[ -d depends/"${dep}" ] && (rm -rf depends/"${dep}" || die)

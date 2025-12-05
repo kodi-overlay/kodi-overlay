@@ -3,11 +3,6 @@
 
 EAPI=8
 
-if [[ ! "${PV}" =~ 9999* ]]; then
-	KODI_ADDON_TAG="0ba1bc70faced93352cdd9ec1a5ec84e22a2e0f5"
-	KEYWORDS="~amd64 ~x86"
-fi
-
 inherit kodi-addon
 
 DESCRIPTION="SidPlay decoder addon for Kodi"

@@ -3,11 +3,7 @@
 
 EAPI=8
 
-if [[ ! "${PV}" =~ 9999* ]]; then
-	KEYWORDS="~amd64 ~x86"
-fi
 KODI_GH_ORG="janbar"
-
 inherit kodi-addon
 
 DESCRIPTION="MythTV PVR for Kodi"

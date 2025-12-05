@@ -4,7 +4,7 @@
 EAPI=8
 
 KODI_GH_ORG="janbar"
-KODI_ADDON_TAG="373c821d01d1cd2fd7be77123fd7fe2adab4c389"
+KODI_ADDON_COMMIT="373c821d01d1cd2fd7be77123fd7fe2adab4c389"
 
 inherit kodi-addon
 

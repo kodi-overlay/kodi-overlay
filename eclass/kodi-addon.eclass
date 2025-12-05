@@ -1,9 +1,10 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: kodi-addon.eclass
 # @MAINTAINER:
 # David GUGLIELMI <david.guglielmi@gmail.com>
+# Alfred Wingate <parona@protonmail.com>
 # @AUTHOR:
 # candrews@gentoo.org
 # @SUPPORTED_EAPIS: 8
@@ -31,21 +32,32 @@ inherit cmake
 # @ECLASS_VARIABLE: KODI_ADDON_PN
 # @PRE_INHERIT
 # @DESCRIPTION:
-# Name for the kodi addon, transformed from PN unless specified.
+# Name for the Kodi addon, transformed from PN unless specified.
 # Example: kodi-something-nothing -> something.nothing
 
 # @ECLASS_VARIABLE: KODI_GH_ORG
 # @PRE_INHERIT
 # @DESCRIPTION:
-# Name for the kodi addon Github organization.
+# Name for the Kodi addon GitHub organization.
 # Example: KODI_GH_ORG="kodi-pvr" -> https://github.com/kodi-pvr
+
+# @ECLASS_VARIABLE: KODI_ADDON_COMMIT
+# @PRE_INHERIT
+# @DESCRIPTION:
+# Commit hash to fetch for the Kodi addon.
 
 # @ECLASS_VARIABLE: KODI_ADDON_TAG
 # @PRE_INHERIT
 # @DESCRIPTION:
-# Name for the kodi addon Github source tag name.
+# Name for the Kodi addon GitHub source tag name.
 # Not checked with *9999 versions.
 # Example: 21.0.1-Omega
+
+# @ECLASS_VARIABLE: KODI_ADDON_REF
+# @INTERNAL
+# @DESCRIPTION:
+# Kodi addon reference used for distfile and S.
+# Derived from KODI_ADDON_COMMIT or KODI_ADDON_TAG.
 
 if [[ -z ${KODI_ADDON_PN} ]]; then
 	KODI_ADDON_PN="${PN##kodi-}"
@@ -95,13 +107,21 @@ if [[ ${PV} =~ 9999$ ]]; then
 		EGIT_BRANCH="${CODENAME}"
 	fi
 else
-	KODI_ADDON_TAG="${KODI_ADDON_TAG:=${PV}-${CODENAME}}"
+	if [[ -n ${KODI_ADDON_COMMIT} ]]; then
+		KODI_ADDON_REF="${KODI_ADDON_COMMIT}"
+		SRC_URI="
+			https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}/archive/${KODI_ADDON_REF}.tar.gz
+				-> ${PN}-${KODI_ADDON_REF}.tar.gz
+		"
+	else
+		KODI_ADDON_REF="${KODI_ADDON_TAG:=${PV}-${CODENAME}}"
+		SRC_URI="
+			https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}/archive/refs/tags/${KODI_ADDON_REF}.tar.gz
+				-> ${PN}-${KODI_ADDON_REF}.tar.gz
+		"
+	fi
 
-	SRC_URI="
-		https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}/archive/${KODI_ADDON_TAG}.tar.gz
-			-> ${PN}-${KODI_ADDON_TAG}.tar.gz
-	"
-	S="${WORKDIR}/${KODI_ADDON_PN}-${KODI_ADDON_TAG}"
+	S="${WORKDIR}/${KODI_ADDON_PN}-${KODI_ADDON_REF}"
 fi
 unset BASH_REMATCH
 
@@ -128,6 +148,17 @@ case ${CODENAME} in
 		;;
 esac
 
+# @FUNCTION: kodi-addon_src_unpack
+# @DESCRIPTION:
+# Unpack handling for Kodi addons.
+kodi-addon_src_unpack() {
+	if [[ ${PV} =~ 9999$ ]]; then
+		git-r3_src_unpack
+	else
+		unpack ${PN}-${KODI_ADDON_REF}.tar.gz
+	fi
+}
+
 # @FUNCTION: kodi-addon_src_prepare
 # @DESCRIPTION:
 # Prepare handling for Kodi addons.
@@ -141,7 +172,7 @@ kodi-addon_src_prepare() {
 
 # @FUNCTION: kodi-addon_src_configure
 # @DESCRIPTION:
-# Configure handling for Kodi addons
+# Configure handling for Kodi addons.
 kodi-addon_src_configure() {
 
 	mycmakeargs+=(
@@ -151,4 +182,4 @@ kodi-addon_src_configure() {
 	cmake_src_configure
 }
 
-EXPORT_FUNCTIONS src_prepare src_configure
+EXPORT_FUNCTIONS src_unpack src_prepare src_configure

@@ -3,11 +3,7 @@
 
 EAPI=8
 
-if [[ ! "${PV}" =~ 9999* ]]; then
-	KEYWORDS="~amd64"
-fi
 KODI_GH_ORG="rbuehlma"
-
 inherit kodi-addon
 
 DESCRIPTION="Zattoo PVR addon for Kodi"

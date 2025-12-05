@@ -99,7 +99,7 @@ else
 
 	SRC_URI="
 		https://github.com/${KODI_GH_ORG}/${KODI_ADDON_PN}/archive/${KODI_ADDON_TAG}.tar.gz
-			-> ${P}.tar.gz
+			-> ${PN}-${KODI_ADDON_TAG}.tar.gz
 	"
 	S="${WORKDIR}/${KODI_ADDON_PN}-${KODI_ADDON_TAG}"
 fi

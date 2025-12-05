@@ -43,7 +43,7 @@ PATCHES=(
 
 src_unpack() {
 	if [[ ! "${PV}" =~ 9999* ]]; then
-		unpack ${P}.tar.gz
+		unpack ${PN}-${KODI_ADDON_TAG}.tar.gz
 	else
 		git-r3_src_unpack
 	fi

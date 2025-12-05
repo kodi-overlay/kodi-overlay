@@ -14,7 +14,3 @@ HOMEPAGE="https://github.com/kodi-pvr/pvr.hts"
 
 LICENSE="GPL-2"
 SLOT="0"
-
-DEPEND="
-	${RDEPEND}
-"

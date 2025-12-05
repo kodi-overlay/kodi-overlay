@@ -13,7 +13,3 @@ SLOT="0"
 
 # TODO: uncomment when 22 with keywords available
 #KEYWORDS="~amd64 ~x86"
-
-DEPEND="
-	${RDEPEND}
-"

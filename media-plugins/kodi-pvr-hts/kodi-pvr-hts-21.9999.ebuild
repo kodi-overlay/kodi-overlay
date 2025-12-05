@@ -15,10 +15,6 @@ HOMEPAGE="https://github.com/kodi-pvr/pvr.hts"
 LICENSE="GPL-2"
 SLOT="0"
 
-DEPEND="
-	${RDEPEND}
-"
-
 PATCHES=(
 	"${FILESDIR}"/${PN}-21.2.6-gcc15.patch
 )

@@ -4,6 +4,7 @@
 # @ECLASS: kodi-addon.eclass
 # @MAINTAINER:
 # David GUGLIELMI <david.guglielmi@gmail.com>
+# Alfred Wingate <parona@protonmail.com>
 # @AUTHOR:
 # candrews@gentoo.org
 # @SUPPORTED_EAPIS: 8

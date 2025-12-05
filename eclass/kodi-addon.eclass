@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: kodi-addon.eclass
@@ -31,13 +31,13 @@ inherit cmake
 # @ECLASS_VARIABLE: KODI_ADDON_PN
 # @PRE_INHERIT
 # @DESCRIPTION:
-# Name for the kodi addon, transformed from PN unless specified.
+# Name for the Kodi addon, transformed from PN unless specified.
 # Example: kodi-something-nothing -> something.nothing
 
 # @ECLASS_VARIABLE: KODI_GH_ORG
 # @PRE_INHERIT
 # @DESCRIPTION:
-# Name for the kodi addon Github organization.
+# Name for the Kodi addon GitHub organization.
 # Example: KODI_GH_ORG="kodi-pvr" -> https://github.com/kodi-pvr
 
 # @ECLASS_VARIABLE: KODI_ADDON_COMMIT
@@ -48,7 +48,7 @@ inherit cmake
 # @ECLASS_VARIABLE: KODI_ADDON_TAG
 # @PRE_INHERIT
 # @DESCRIPTION:
-# Name for the kodi addon Github source tag name.
+# Name for the Kodi addon GitHub source tag name.
 # Not checked with *9999 versions.
 # Example: 21.0.1-Omega
 
@@ -171,7 +171,7 @@ kodi-addon_src_prepare() {
 
 # @FUNCTION: kodi-addon_src_configure
 # @DESCRIPTION:
-# Configure handling for Kodi addons
+# Configure handling for Kodi addons.
 kodi-addon_src_configure() {
 
 	mycmakeargs+=(

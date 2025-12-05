@@ -128,6 +128,17 @@ case ${CODENAME} in
 		;;
 esac
 
+# @FUNCTION: kodi-addon_src_unpack
+# @DESCRIPTION:
+# Unpack handling for Kodi addons.
+kodi-addon_src_unpack() {
+	if [[ ${PV} =~ 9999$ ]]; then
+		git-r3_src_unpack
+	else
+		unpack ${PN}-${KODI_ADDON_TAG}.tar.gz
+	fi
+}
+
 # @FUNCTION: kodi-addon_src_prepare
 # @DESCRIPTION:
 # Prepare handling for Kodi addons.
@@ -151,4 +162,4 @@ kodi-addon_src_configure() {
 	cmake_src_configure
 }
 
-EXPORT_FUNCTIONS src_prepare src_configure
+EXPORT_FUNCTIONS src_unpack src_prepare src_configure

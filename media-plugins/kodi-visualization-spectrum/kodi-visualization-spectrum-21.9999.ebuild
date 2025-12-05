@@ -4,7 +4,7 @@
 EAPI=8
 
 if [[ ! "${PV}" =~ 9999* ]]; then
-	KODI_ADDON_TAG="8f2fc2135b34740af538ade3faf310f1a188db7f"
+	KODI_ADDON_COMMIT="8f2fc2135b34740af538ade3faf310f1a188db7f"
 	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 

@@ -3,10 +3,6 @@
 
 EAPI=8
 
-if [[ ! "${PV}" =~ 9999* ]]; then
-	KEYWORDS="~amd64 ~x86"
-fi
-
 inherit kodi-addon
 
 DESCRIPTION="SFTP VFS addon for Kodi"
@@ -14,6 +10,8 @@ HOMEPAGE="https://github.com/xbmc/vfs.sftp"
 
 LICENSE="GPL-2"
 SLOT="0"
+
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	net-libs/libssh:=[sftp]

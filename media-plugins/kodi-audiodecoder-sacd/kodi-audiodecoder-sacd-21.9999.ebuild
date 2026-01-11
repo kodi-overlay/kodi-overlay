@@ -3,11 +3,6 @@
 
 EAPI=8
 
-if [[ ! "${PV}" =~ 9999* ]]; then
-	KODI_ADDON_COMMIT="7ef138335d064aaf338b99d3595db408c73845cc"
-	KEYWORDS="~amd64 ~x86"
-fi
-
 inherit kodi-addon
 
 DESCRIPTION="Super Audio CD ISO-Image decoder addon for Kodi"

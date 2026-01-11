@@ -1,13 +1,7 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-
-if [[ ! "${PV}" =~ 9999* ]]; then
-	KEYWORDS="~amd64 ~x86"
-else
-	inherit git-r3
-fi
 
 LIBRETROCOMMON_COMMIT_ID="ad9124f1ecc5d0092fd285cbf9c4ffac317b1a65"
 RCHEEVOS_VERSION="9.2.0"
@@ -25,6 +19,8 @@ SRC_URI+="
 
 LICENSE="GPL-2"
 SLOT="0"
+
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-libs/tinyxml

@@ -1,12 +1,7 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-
-if [[ ! "${PV}" =~ 9999* ]]; then
-	KODI_ADDON_COMMIT="88c1a68efa644aaf2bb91378e26a3f054dcf025c"
-	KEYWORDS="~amd64 ~arm64 ~x86"
-fi
 
 inherit kodi-addon
 

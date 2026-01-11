@@ -13,8 +13,6 @@ HOMEPAGE="https://github.com/kodi-game/game.libretro.nestopia"
 LICENSE="GPL-2"
 SLOT="0"
 
-KEYWORDS="~amd64 ~x86"
-
 RDEPEND="
 	games-emulation/libretro-nestopia
 	media-plugins/kodi-game-libretro

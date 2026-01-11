@@ -84,12 +84,6 @@ if [[ -z ${CODENAME} ]]; then
 		21*)
 			CODENAME="Omega"
 			;;
-		20*)
-			CODENAME="Nexus"
-			;;
-		19*)
-			CODENAME="Matrix"
-			;;
 		*)
 			if ! [[ ${PV} =~ 9999$ ]]; then
 				die "Non live ebuild and no codename set"
@@ -133,14 +127,6 @@ case ${CODENAME} in
 	Omega)
 		RDEPEND+=">=media-tv/kodi-21"
 		DEPEND+=">=media-tv/kodi-21"
-		;;
-	Nexus)
-		RDEPEND+=">=media-tv/kodi-20"
-		DEPEND+=">=media-tv/kodi-20"
-		;;
-	Matrix)
-		RDEPEND+=">=media-tv/kodi-19"
-		DEPEND+=">=media-tv/kodi-19"
 		;;
 	*)
 		RDEPEND+="media-tv/kodi"

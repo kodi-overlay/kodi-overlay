@@ -3,7 +3,7 @@
 
 EAPI=8
 
-BENTO4_VERSION="1.6.0-641-3-Omega" # TODO: unbundle
+BENTO4_VERSION="1.6.0-641-5-Piers" # TODO: unbundle
 
 inherit kodi-addon
 

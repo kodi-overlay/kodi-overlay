@@ -544,7 +544,12 @@ src_test() {
 	)
 
 	# Tests assumes bluray support is enabled
-	use !bluray && CMAKE_SKIP_TESTS+=( TestURIUtils.GetBasePath )
+	if use !bluray; then
+		CMAKE_SKIP_TESTS+=(
+			TestStacks.TestMovieFilesStackFolderFilesDiscPart
+			TestURIUtils.GetBasePath
+		)
+	fi
 
 	if use arm || use x86; then
 		# bug #779184

@@ -214,7 +214,7 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 		net-libs/gnutls:=
 	)
 	udf? (
-		>=dev-libs/libudfread-1.0.0
+		>=dev-libs/libudfread-1.0.0:=
 	)
 	udev? (
 		virtual/libudev:=

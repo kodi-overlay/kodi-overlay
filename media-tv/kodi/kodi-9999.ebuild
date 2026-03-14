@@ -413,8 +413,13 @@ src_configure() {
 		-DENABLE_UDEV=$(usex udev)
 		-DENABLE_UDFREAD=$(usex udf)
 		-DENABLE_UPNP=$(usex upnp)
+
+		# Additional find_package on top of core_optional_deps for whatever reason
 		-DENABLE_VAAPI=$(usex vaapi)
+		$(cmake_use_find_package vaapi VAAPI)
 		-DENABLE_VDPAU=$(usex vdpau)
+		$(cmake_use_find_package vdpau VDPAU)
+
 		-DENABLE_XSLT=$(usex xslt)
 
 		-DWITH_FFMPEG=OFF

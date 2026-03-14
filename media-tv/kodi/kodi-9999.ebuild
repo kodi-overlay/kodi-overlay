@@ -19,7 +19,7 @@ GROOVY_VERSION="4.0.26"
 APACHE_COMMON_LANG_VERSION="3.17.0"
 APACHE_COMMON_TEXT_VERSION="1.13.0"
 
-_JAVA_PKG_WANT_BUILD_VM=( {openjdk{,-jre},icedtea}{,-bin}-{8,11,17,21} )
+_JAVA_PKG_WANT_BUILD_VM=( {openjdk{,-jre},icedtea}{,-bin}-{8,11,17,21,25} )
 JAVA_PKG_WANT_BUILD_VM=${_JAVA_PKG_WANT_BUILD_VM[@]}
 # Required to be set, but not used.
 JAVA_PKG_WANT_SOURCE="21"
@@ -272,7 +272,7 @@ BDEPEND="
 	dev-build/cmake
 	dev-lang/swig
 	virtual/pkgconfig
-	<=virtual/jre-21-r9999:*
+	<=virtual/jre-25-r9999:*
 	doc? (
 		app-text/doxygen
 	)

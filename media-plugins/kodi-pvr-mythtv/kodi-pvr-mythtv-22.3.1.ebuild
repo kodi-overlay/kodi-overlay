@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 KODI_GH_ORG="janbar"
-KODI_ADDON_COMMIT="79689c27638da4255ff999b86900daef9386b0d3"
+KODI_ADDON_COMMIT="883f91737d4e75cf0aa5cdb22970190dee05e722"
 
 inherit kodi-addon
 

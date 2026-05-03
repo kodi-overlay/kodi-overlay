@@ -427,15 +427,15 @@ src_configure() {
 
 		#To bundle or not
 		-DENABLE_INTERNAL_ASS=OFF
-		-DENABLE_INTERNAL_CURL=OFF
 		-DENABLE_INTERNAL_CROSSGUID=OFF
-		-DENABLE_INTERNAL_DAV1D=OFF
+		-DENABLE_INTERNAL_CURL=OFF
 		-DENABLE_INTERNAL_EXIV2=OFF
 		-DENABLE_INTERNAL_FFMPEG="$(usex !system-ffmpeg)"
 		-DENABLE_INTERNAL_FLATBUFFERS=OFF
 		-DENABLE_INTERNAL_FMT=OFF
 		-DENABLE_INTERNAL_FSTRCMP=OFF
 		-DENABLE_INTERNAL_GTEST=OFF
+		-DENABLE_INTERNAL_LZO2=OFF
 		-DENABLE_INTERNAL_NLOHMANNJSON=OFF
 		-DENABLE_INTERNAL_PCRE2=OFF
 		-DENABLE_INTERNAL_SPDLOG=OFF
@@ -450,14 +450,20 @@ src_configure() {
 	)
 
 	# Separated to avoid "Manually-specified variables were not used by the project:"
+	use bluray && mycmakeargs+=( -DENABLE_INTERNAL_BLURAY=OFF )
 	use cec && mycmakeargs+=( -DENABLE_INTERNAL_CEC=OFF )
 	use css && mycmakeargs+=( -Dlibdvdcss_URL="${DISTDIR}/libdvdcss-${LIBDVDCSS_VERSION}.tar.gz" )
+	use mariadb && mycmakeargs+=( -DENABLE_INTERNAL_MARIADBCLIENT=OFF )
 	use !system-ffmpeg && mycmakeargs+=(
+		-DENABLE_INTERNAL_DAV1D=OFF
 		-DFFMPEG_URL="${DISTDIR}/ffmpeg-${FFMPEG_VERSION}.tar.xz"
 	)
 	use nfs && mycmakeargs+=( -DENABLE_INTERNAL_NFS=OFF )
 	use !udev && mycmakeargs+=( -DENABLE_LIBUSB=$(usex libusb) )
+	use udf && mycmakeargs+=( -DENABLE_INTERNAL_UDFREAD=OFF )
+	use webserver && mycmakeargs+=( -DENABLE_INTERNAL_LIBMICROHTTPD=OFF )
 	use X && use !gles && mycmakeargs+=( -DENABLE_GLX=ON )
+	use xslt && mycmakeargs+=( -DENABLE_INTERNAL_XSLT=OFF )
 
 	for flag in ${CPU_FLAGS[@]} ; do
 		local name=${flag#cpu_flags_*_}

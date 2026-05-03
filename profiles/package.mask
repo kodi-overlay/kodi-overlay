@@ -1,3 +1,7 @@
+# Unmask packages masked in ::gentoo
+-media-plugins/kodi-game-libretro-dosbox
+-media-plugins/kodi-game-libretro-nestopia
+
 # mask ebuilds pending for Kodi 22
 =media-plugins/kodi-game-libretro-22*
 =media-plugins/kodi-imagedecoder-heif-22*

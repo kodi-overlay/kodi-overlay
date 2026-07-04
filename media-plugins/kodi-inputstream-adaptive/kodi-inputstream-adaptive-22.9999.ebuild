@@ -1,9 +1,9 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-BENTO4_VERSION="1.6.0-641-3-Omega" # TODO: unbundle
+BENTO4_VERSION="1.6.0-641-6-Piers" # TODO: unbundle
 
 inherit kodi-addon
 

@@ -35,7 +35,7 @@ DEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${P}-gcc15.patch
+	"${FILESDIR}"/${PN}-21.5.23-gcc15.patch
 )
 
 src_prepare() {

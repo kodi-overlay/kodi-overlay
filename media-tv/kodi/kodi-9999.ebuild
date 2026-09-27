@@ -85,7 +85,6 @@ REQUIRED_USE="
 "
 RESTRICT="!test? ( test )"
 
-# dev-libs/libcec[-cubox] bug #818262
 COMMON_DEPEND="
 	>=dev-libs/flatbuffers-23.3.3:=
 	>=dev-libs/lzo-2.04:2
@@ -141,7 +140,7 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 		sys-libs/libcap
 	)
 	cec? (
-		>=dev-libs/libcec-4.0[-cubox(-)]
+		>=dev-libs/libcec-7.0.0:=
 	)
 	dbus? (
 		sys-apps/dbus

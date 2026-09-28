@@ -1,0 +1,3 @@
+# Unmask packages masked in ::gentoo
+media-plugins/kodi-game-libretro-dosbox
+media-plugins/kodi-game-libretro-nestopia

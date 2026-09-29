@@ -8,7 +8,7 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_12 )
 inherit distutils-r1
 
-DESCRIPTION="Check kodi addons or whole kodi repositories for errors and best practices."
+DESCRIPTION="Check kodi addons or whole kodi repositories for errors and best practices"
 HOMEPAGE="https://github.com/xbmc/addon-check"
 # pypi sdist lacks test data
 # ... and not tagged on git
@@ -23,8 +23,8 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
-PROPERTIES="test_network"
 RESTRICT="test"
+PROPERTIES="test_network"
 
 RDEPEND="
 	dev-python/packaging[${PYTHON_USEDEP}]

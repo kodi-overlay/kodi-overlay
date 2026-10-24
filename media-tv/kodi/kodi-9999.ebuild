@@ -199,6 +199,7 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 		app-arch/bzip2
 		app-arch/xz-utils
 		media-libs/dav1d:=
+		media-libs/opus:=
 		net-libs/gnutls:=
 	)
 	udf? (
@@ -424,6 +425,7 @@ src_configure() {
 		-DENABLE_INTERNAL_LCMS2=OFF
 		-DENABLE_INTERNAL_LZO2=OFF
 		-DENABLE_INTERNAL_NLOHMANNJSON=OFF
+		-DENABLE_INTERNAL_OPUS=OFF
 		-DENABLE_INTERNAL_SWIG=$(usex !system-swig)
 		-DENABLE_INTERNAL_PCRE2=OFF
 		-DENABLE_INTERNAL_SPDLOG=OFF

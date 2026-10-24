@@ -421,7 +421,6 @@ src_configure() {
 		-DENABLE_INTERNAL_FLATBUFFERS=OFF
 		-DENABLE_INTERNAL_FMT=OFF
 		-DENABLE_INTERNAL_FSTRCMP=OFF
-		-DENABLE_INTERNAL_GTEST=OFF
 		-DENABLE_INTERNAL_LCMS2=OFF
 		-DENABLE_INTERNAL_LZO2=OFF
 		-DENABLE_INTERNAL_NLOHMANNJSON=OFF
@@ -454,6 +453,7 @@ src_configure() {
 	)
 	use !system-swig && mycmakeargs+=( -DSWIG_URL="${DISTDIR}/swig-${SWIG_VERSION}.tar.gz" )
 	use nfs && mycmakeargs+=( -DENABLE_INTERNAL_NFS=OFF )
+	use test && mycmakeargs+=( -DENABLE_INTERNAL_GTEST=OFF )
 	use !udev && mycmakeargs+=( -DENABLE_LIBUSB=$(usex libusb) )
 	use udf && mycmakeargs+=( -DENABLE_INTERNAL_UDFREAD=OFF )
 	use webserver && mycmakeargs+=( -DENABLE_INTERNAL_LIBMICROHTTPD=OFF )

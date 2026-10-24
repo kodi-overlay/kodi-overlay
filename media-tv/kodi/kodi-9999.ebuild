@@ -364,6 +364,7 @@ src_configure() {
 		-DENABLE_CLANGTIDY=OFF
 		-DENABLE_CPPCHECK=OFF
 		-DENABLE_INCLUDEWHATYOUUSE=OFF
+		-DENABLE_PCH=OFF # doesn't make sense for Gentoo
 		# https://bugs.gentoo.org/show_bug.cgi?id=606124
 		-DENABLE_GOLD=OFF
 		-DENABLE_LLD=OFF

@@ -3,7 +3,8 @@
 
 EAPI=8
 
-CODENAME="Piers"
+# No new codename for 23.x as of 2026/10/24
+CODENAME=
 
 # libdvd{css,read,nav} are not unbundlable without patching the buildsystem.
 

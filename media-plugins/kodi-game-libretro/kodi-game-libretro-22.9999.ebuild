@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-LIBRETROCOMMON_COMMIT_ID="55ca668901e72eb885976c8c839e6903ecbb119d"
-RCHEEVOS_VERSION="9.2.0"
+LIBRETROCOMMON_COMMIT_ID="0a2b63d903ea0cc7bac9e759af57db190b4aeadd"
+RCHEEVOS_VERSION="12.5.0"
 
 inherit kodi-addon
 

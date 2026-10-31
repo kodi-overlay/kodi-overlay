@@ -1,5 +1,9 @@
 # mask ebuilds pending for Kodi 22
 =media-plugins/kodi-game-libretro-22*
+>=media-plugins/kodi-game-libretro-bnes-0.83.0.38
+>=media-plugins/kodi-game-libretro-nestopia-2.0.0.69
+>=media-plugins/kodi-game-libretro-snes9x-1.63.0.64
+>=media-plugins/kodi-game-libretro-twentyfortyeight-1.0.0.157
 =media-plugins/kodi-imagedecoder-heif-22*
 =media-plugins/kodi-imagedecoder-raw-22*
 =media-plugins/kodi-inputstream-adaptive-22*
